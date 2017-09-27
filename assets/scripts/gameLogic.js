@@ -1,3 +1,4 @@
+'use strict'
 // game turn tracker
 
 // create basic array for test purposes
