@@ -13,16 +13,17 @@ div {
 }
 
 .gameBoard {
-  margin: 10% 50px;
+  margin: 50px 50px;
 }
 
 .loginRegisterContainder{
+  clear: both;
+  margin: 50px 50px;
   min-height: 110px;
 }
 
 .login, .register {
   float: left;
-  width: 25%;
   min-height: 100px;
 }
 
