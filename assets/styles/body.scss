@@ -27,6 +27,10 @@ div {
   min-height: 100px;
 }
 
+form {
+  font-size: $defaultFormTextSize;
+}
+
 .grid {
   float: left;
 }

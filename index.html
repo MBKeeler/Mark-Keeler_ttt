@@ -89,16 +89,31 @@
       </div>
 
       <div class="loginRegisterContainder">
-        <div class="login">login box
+        <div class="login">
           <form>
-            <input type="text" name="username" placeholder="Enter Username">
-            <input type="text" name="password" placeholder="Password">
+            <fieldset>
+              <legend>Login Captain</legend>
+              <input type="text" name="credentials[email]"  placeholder="Enter Username">
+              <br>
+              <input type="text" name="credentials[password]"  placeholder="Password">
+              <br>
+              <input type="submit" name="submit" value="Login as Captain:">
+          </fieldset>
           </form>
           </div>
-        <div class="register">register box
-          <input type="text" name="newusername" placeholder="Enter a Username">
-          <input type="text" name="newpassword" placeholder="Password">
-          <input type="text" name="confirmpassword" placeholder="Confirm Password">
+        <div class="register">
+          <form>
+            <fieldset>
+              <legend>Register New Captain</legned>
+                <input type="text" name="credentials[email]" placeholder="Enter a Username">
+                <br>
+                <input type="text" name="credentials[password]" placeholder="Password">
+                <br>
+                <input type="text" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                <br>
+                <input type="submit" name="submit" value="Register New Captain!">
+            </fieldset>
+          </form>
         </div>
       </div>
 
