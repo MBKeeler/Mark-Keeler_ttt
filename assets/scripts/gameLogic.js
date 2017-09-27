@@ -3,6 +3,17 @@
 // create basic array for test purposes
 let gameBoard = ['*', '*', '*', '*', '*', '*', '*', '*', '*']
 
+// game over logic
+// while each element of gameBoard[] has an "*" continue the game,
+// check for winner
+// return false for '*' in elements or true for no "*" OR true for a winner
+const emptySectors = function (element, array) {
+  return element === '*'
+}
+
+const checkGameContinues = function () {
+  gameBoard.some(emptySectors)
+}
 // create stub of check winner function.
 const checkWinner = function (array) {
   console.log('checkWinner() has this array: ', array) // just checks to make sure function is called
@@ -39,5 +50,5 @@ const checkWinner = function (array) {
   } else if (array[2] && array[4] && array[6] === 'o') {
     console.log('O is the winner')
   }
-  return checkWinner
+  return true
 }
