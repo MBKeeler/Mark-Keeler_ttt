@@ -6,8 +6,32 @@ body {
 }
 
 div {
-  clear: both;
-  margin: 10% auto;
+
+  margin: auto;
+  border: 1px solid $defaultBoarderColor;
+  text-align: center;
+}
+
+.gameBoard {
+  margin: 10% 50px;
+}
+
+.loginRegisterContainder{
+  min-height: 110px;
+}
+
+.login, .register {
+  float: left;
+  width: 25%;
+  min-height: 100px;
+}
+
+.grid {
+  float: left;
+}
+
+.boxBottom {
+  margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 768px) {
