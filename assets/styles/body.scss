@@ -22,13 +22,15 @@ div {
   min-height: 110px;
 }
 
-.login, .register {
+.login.register {
   float: left;
   min-height: 100px;
 }
 
-form {
+input {
   font-size: $defaultFormTextSize;
+  color: $defaultTextColor;
+  background-color: $defaultTextBackground;
 }
 
 .grid {
