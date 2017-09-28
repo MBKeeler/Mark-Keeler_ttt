@@ -1,0 +1,5 @@
+body {
+  background-image: url("../images/hubble1.jpg");
+  background-color: #000;
+  color: $defaultTextColor;
+}
