@@ -20,9 +20,16 @@ const checkGameContinues = function () {
 // check to see if sector is occupied
 
 const occupiedSector = function (array, index) {
-  if (array.index === '*') {
+  if (array[index] === '*') {
+    console.log('unoccupied')
     return false
-  } else if (array.index === 'x' || array.index === 'o') {
+  } else if (array[index] === 'x') {
+    console.log('occupied by: ', array[index])
+    $('#message').html('Sector Occupied <span style="color:red">Select Another Sector</span>')
+    return true
+  } else if (array[index] === 'o') {
+    console.log('occupied by: ', array[index])
+    $('#message').html('Sector Occupied <span style="color:red">Select Another Sector</span>')
     return true
   }
 }
