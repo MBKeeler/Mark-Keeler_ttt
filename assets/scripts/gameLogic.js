@@ -1,15 +1,15 @@
 'use strict'
 // game turn tracker
-
+let turn = 1
 // create basic array for test purposes
 let gameBoard = ['*', '*', '*', '*', '*', '*', '*', '*', '*']
 
-// game over logic
-// while each element of gameBoard[] has an "*" continue the game,
-// check for winner
-// return false for '*' in elements or true for no "*" OR true for a winner
+// update gameBoardArray
+const updateBoard = function (index, value) {
+  gameBoard[index] = value
+  $('#message').html('Sector is now under your control!  Well done captain.</span>')
+}
 
-// check if there are empty sectores to claim
 const emptySectors = function (element, index, array) {
   return element === '*'
 }
@@ -34,13 +34,27 @@ const occupiedSector = function (array, index) {
   }
 }
 
+// turn token
+const currentTurn = function (turn) {
+  if (turn % 2 === 0) {
+    $('#message').html('Turn belongs to player <span style="color:green">O</span>')
+    return true
+  } else {
+    $('#message').html('Turn belongs to player <span style="color:green">X</span>')
+    return false
+  }
+//  turn = turn++
+}
+
 // create stub of check winner function.
 const checkWinner = function (array) {
   console.log('checkWinner() has this array: ', array) // just checks to make sure function is called
   if (array[0] && array[1] && array[2] === 'x') { // begin row by row check
     console.log('X is the winner')
+    $('#message').html('<span style="color:green">Player X</span> is the winner!')
   } else if (array[0] && array[1] && array[2] === 'o') {
     console.log('O is the winner')
+    $('#message').html('<span style="color:green">Player O</span> is the winner!')
   } else if (array[3] && array[4] && array[5] === 'x') {
     console.log('X is the winner')
   } else if (array[3] && array[4] && array[5] === 'o') {
