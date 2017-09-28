@@ -8,6 +8,7 @@ let gameBoard = ['*', '*', '*', '*', '*', '*', '*', '*', '*']
 // while each element of gameBoard[] has an "*" continue the game,
 // check for winner
 // return false for '*' in elements or true for no "*" OR true for a winner
+
 const emptySectors = function (element, array) {
   return element === '*'
 }
