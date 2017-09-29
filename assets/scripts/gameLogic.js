@@ -6,6 +6,8 @@ let gameBoard = ['*', '*', '*', '*', '*', '*', '*', '*', '*']
 
 // update gameBoardArray
 const updateBoard = function (index, value) {
+  index = Number(index)
+  console.log(index)
   gameBoard[index] = value
   $('#message').html('Sector is now under your control!  Well done captain.</span>')
 }

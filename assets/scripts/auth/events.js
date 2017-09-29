@@ -2,7 +2,7 @@
 const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
-const gameLogic = require('./gameLogic')
+const gameLogic = require('../gameLogic')
 
 // Authentication handlers
 
@@ -41,15 +41,9 @@ const onSignOut = function (event) {
 // code for Game UI handlers
 // let's just get the grid to update
 const clickSector = function (event) {
-  const data = getFormFields(this)
   event.preventDefault()
-  console.log('sector-click', data)
-  sector = document.getElementById(sectorID)
-  $(sectorID).click(function () {
-    gameLogic.updateBoard(data)
-  })
+  console.log('sector-click', event)
 }
-
 
 // handler definitions and module exports
 
@@ -57,9 +51,10 @@ const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
-  $('#sector-click div').on('click', clickSector)
+  $('#box_grid div').on('click', clickSector)
 }
 
 module.exports = {
-  addHandlers
+  addHandlers,
+  clickSector
 }

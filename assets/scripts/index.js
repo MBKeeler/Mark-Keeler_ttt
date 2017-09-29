@@ -2,7 +2,7 @@
 
 const setAPIOrigin = require('../../lib/set-api-origin')
 const config = require('./config')
-const gameLogic = require('./gameLogic')
+// const gameLogic = require('./gameLogic')
 const events = require('./auth/events')
 
 $(() => {
@@ -16,4 +16,11 @@ $(() => {
 // require('./example')
 $(() => {
   events.addHandlers()
+})
+
+$(() => {
+  $('.box_grid').on('click', events.clickSector)
+  $('.box_grid').on('click', function () {
+    console.log(events)
+  })
 })
