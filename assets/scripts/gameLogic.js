@@ -1,8 +1,20 @@
 'use strict'
+const config = require('../config')
+const store = require('../store')
+
 // game turn tracker
 let turn = 1
 // create basic array for test purposes
 let gameBoard = ['*', '*', '*', '*', '*', '*', '*', '*', '*']
+
+// stub of create new game
+const resetGame = function (array) {
+  for (let i = 0; i < array.length; i++) {
+    array[i] = '*'
+    // need some jquery code to clear the board UI
+  }
+  gameBoard = array
+}
 
 // update gameBoardArray
 const updateBoard = function (index, value) {
@@ -87,4 +99,46 @@ const checkWinner = function (array) {
     console.log('O is the winner')
   }
   return alert('')
+}
+
+// stub of game create server record
+const gameCreate = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'POST',
+    game: {
+      id: store.game.id, // currently undefined
+      cells: ['*', '*', '*', '*', '*', '*', '*', '*', '*'],
+      over: false,
+      player_x: {
+        id: store.user.id,
+        email: 'and@and.com'
+      },
+      player_o: null
+    }
+  })
+}
+
+// stub of game update
+const gameUpdate = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.user.id,
+    method: 'PATCH',
+    data
+  })
+}
+
+// stub of game restore
+const gameStore = function (data) {
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.user.id,
+    method: 'GET',
+    game
+  })
+}
+
+module.exports = {
+  gameCreate,
+  gameUpdate,
+  gameRestore
 }
