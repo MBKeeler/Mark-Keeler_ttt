@@ -21,6 +21,6 @@ $(() => {
 $(() => {
   $('.box_grid').on('click', events.clickSector)
   $('.box_grid').on('click', function () {
-    console.log(events)
+    console.log('Logging events from index.js: ', events)
   })
 })

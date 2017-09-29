@@ -3,6 +3,7 @@ const getFormFields = require(`../../../lib/get-form-fields`)
 const api = require('./api')
 const ui = require('./ui')
 const gameLogic = require('../gameLogic')
+const events = require('../index')
 
 // Authentication handlers
 
@@ -41,8 +42,20 @@ const onSignOut = function (event) {
 // code for Game UI handlers
 // let's just get the grid to update
 const clickSector = function (event) {
+  const boardCell = $(event.target).attr('id')
   event.preventDefault()
-  console.log('sector-click', event)
+  const num = gameLogic.gameTurn
+  // determine turn
+  const player = gameLogic.currentTurn(num)
+  console.log('true is 0 false is x: ', player)
+  console.log('click selector thinks its turn', num)
+  if (gameLogic.currentTurn(num) === true) {
+    gameLogic.updateBoard(boardCell, 'o')
+  } else {
+    gameLogic.updateBoard(boardCell, 'x')
+  }
+  // gameLogic.occupiedSector(gameLogic.gameBoard, boardCell)
+  // gameLogic.updateBoard(boardCell, 'x', num)
 }
 
 // handler definitions and module exports

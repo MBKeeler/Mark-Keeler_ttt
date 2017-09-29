@@ -18,6 +18,10 @@ div {
   margin: 50px auto;
 }
 
+#message {
+    color: $captainsMessage;
+}
+
 .loginRegisterContainder{
   clear: both;
   margin: 50px 50px;
@@ -46,6 +50,10 @@ input {
   width: 180px;
   height: 180px;
   cursor: crosshair;
+}
+
+#0 {
+  background-image: image("../images/planet.jpg");
 }
 
 .boxBottom {

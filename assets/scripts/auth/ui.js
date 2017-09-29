@@ -38,11 +38,18 @@ const signOutFailure = function (error) {
   $('#message').html('Sign Out  <span style="color:red">Failed</span>')
 }
 
+// begin game logic messages
+const sectorIsOccupied = function () {
+  console.log('Sector is occupied')
+  $('#message').html('Sector Occupied <span style="color:red">Select Another Sector</span>')
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
   signInSuccess,
   signInFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
+  sectorIsOccupied
 }
