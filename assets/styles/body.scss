@@ -33,7 +33,6 @@ legend {
 }
 
 .login.register {
-  display: inline;
   max-width: 250px;
   min-height: 100px;
   color: $defaultTextColor;
@@ -47,6 +46,7 @@ input {
 
 .box_grid {
   float: left;
+  border: 1px solid $defaultBoarderColor;
   width: 180px;
   height: 180px;
   cursor: crosshair;
