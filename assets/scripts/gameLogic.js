@@ -1,19 +1,18 @@
 'use strict'
 const config = require('./config')
 const store = require('./store')
+const ui = require('./auth/ui.js')
 
 // game turn tracker
+window.gameTurn = 1
 
-const currentGameTurn = function (turn) {
-  turn = turn + 1
-  return turn
+const currentGameTurn = function () {
+  gameTurn++
+  return gameTurn
 }
 
 // create basic array for test purposes
 let gameBoard = ['*', '*', '*', '*', '*', '*', '*', '*', '*']
-
-// array to hold pathes to player game tokens
-const gameTokens = ['../images/xwing.jpeg','../images/tiefighter.jpec']
 
 // stub of create new game
 const resetGame = function (array) {
@@ -24,51 +23,50 @@ const resetGame = function (array) {
   gameBoard = array
 }
 
-const resetGameTurn = function () {
-  turn = 1
-  return turn
-}
-
-// update gameBoardArray
-const updateBoard = function (index, value) {
-  console.log(index)
-  if (occupiedSector(gameBoard, index) === true) {
-    $('#message').html('Sector Occupied <span style="color:red">Select Another Sector</span>')
-  } else {
-    gameBoard[index] = value
-    $('#message').html('Sector is now under your control!  Well done captain.</span>')
-    checkWinner(gameBoard)
-    const turn = gameTurn()
-    console.log('game turn is now set to: ', turn)
-  }
-}
-// now update the UI with player token
-// we need to pass the player's value (string x or o) and the div ID
-const placeToken = function (value, id) {
-
-}
-
-// checks for any empty sectors
-const emptySectors = function (element, index, array) {
-  return element === '*'
-}
-const checkGameContinues = function () {
-  gameBoard.some(emptySectors)
-}
-
 // check to see if sector is occupied
 
-const occupiedSector = function (array, index) {
+const occupiedSector = function (index) {
+  const array = gameBoard
   console.log('occupiedSectors array is: ', array)
   console.log('occupiedSector index is:', index)
   if (array[index] === '*') {
     console.log('unoccupied')
     return false
+    // had to add this line because the event handler was picking up the player
+    // image as a value and setting the index to undefined.  Originall I wanted
+    // to set the player's image to a background image to avoid this problem
+    // however background images proved to be a problem.
+  } else if (array[index] === undefined) {
+    return true
   } else {
-    console.log(index, ' is occupied')
     return true
   }
 }
+
+// update gameBoardArray
+const updateBoard = function (index, value) {
+  console.log('updateBoard index value ', index)
+  const checkSector = occupiedSector(index)
+  if (checkSector === false) {
+    console.log('we now assume sector is unoccupied and update the board', checkSector)
+    gameBoard[index] = value
+    checkWinner(gameBoard)
+    currentGameTurn()
+    // save game code here
+    return true
+  } else {
+    console.log('we now know the sector is occcupied and we deliver a message', checkSector)
+    return false
+  }
+}
+
+// checks for any empty sectors
+// const emptySectors = function (element, index, array) {
+//   return element === '*'
+// }
+// const checkGameContinues = function () {
+//   gameBoard.some(emptySectors)
+// }
 
 // turn checker
 const currentTurn = function (turn) {
@@ -86,67 +84,67 @@ const checkWinner = function (array) {
   console.log('checkWinner() has this array: ', array) // just checks to make sure function is called
   if (array[0] && array[1] && array[2] === 'x') { // begin row by row check
     console.log('X is the winner')
-    $('#message').html('<span style="color:green">Player X</span> is the winner!')
+    ui.displayWinnner('x')
     return true
   } else if (array[0] && array[1] && array[2] === 'o') {
     console.log('O is the winner')
-    $('#message').html('<span style="color:green">Player O</span> is the winner!')
+    ui.displayWinnner('o')
     return true
   } else if (array[3] && array[4] && array[5] === 'x') {
     console.log('X is the winner')
-    $('#message').html('<span style="color:green">Player X</span> is the winner!')
+    ui.displayWinnner('x')
     return true
   } else if (array[3] && array[4] && array[5] === 'o') {
     console.log('O is the winner')
-    $('#message').html('<span style="color:green">Player O</span> is the winner!')
+    ui.displayWinnner('o')
     return true
   } else if (array[6] && array[7] && array[8] === 'x') {
     console.log('X is the winner')
-    $('#message').html('<span style="color:green">Player X</span> is the winner!')
+    ui.displayWinnner('x')
     return true
   } else if (array[6] && array[7] && array[8] === 'o') {
     console.log('O is the winner')
-    $('#message').html('<span style="color:green">Player O</span> is the winner!')
+    ui.displayWinnner('o')
     return true
   } else if (array[0] && array[3] && array[6] === 'x') { // begin column by column check
     console.log('X is the winner')
-    $('#message').html('<span style="color:green">Player X</span> is the winner!')
+    ui.displayWinnner('x')
     return true
   } else if (array[0] && array[3] && array[6] === 'o') {
     console.log('O is the winner')
-    $('#message').html('<span style="color:green">Player O</span> is the winner!')
+    ui.displayWinnner('o')
     return true
   } else if (array[1] && array[4] && array[7] === 'x') {
     console.log('X is the winner')
-    $('#message').html('<span style="color:green">Player X</span> is the winner!')
+    ui.displayWinnner('x')
     return true
   } else if (array[1] && array[4] && array[7] === 'o') {
     console.log('O is the winner')
-    $('#message').html('<span style="color:green">Player O</span> is the winner!')
+    ui.displayWinnner('o')
     return true
   } else if (array[2] && array[5] && array[8] === 'x') {
     console.log('X is the winner')
-    $('#message').html('<span style="color:green">Player X</span> is the winner!')
+    ui.displayWinnner('x')
     return true
   } else if (array[2] && array[5] && array[8] === 'o') {
     console.log('O is the winner')
-    $('#message').html('<span style="color:green">Player O</span> is the winner!')
+    ui.displayWinnner('o')
     return true
   } else if (array[0] && array[4] && array[8] === 'x') { // begin diagonal check
     console.log('X is the winner')
-    $('#message').html('<span style="color:green">Player X</span> is the winner!')
+    ui.displayWinnner('x')
     return true
   } else if (array[0] && array[4] && array[8] === 'o') {
     console.log('O is the winner')
-    $('#message').html('<span style="color:green">Player O</span> is the winner!')
+    ui.displayWinnner('o')
     return true
   } else if (array[2] && array[4] && array[6] === 'x') {
     console.log('X is the winner')
-    $('#message').html('<span style="color:green">Player X</span> is the winner!')
+    ui.displayWinnner('x')
     return true
   } else if (array[2] && array[4] && array[6] === 'o') {
     console.log('O is the winner')
-    $('#message').html('<span style="color:green">Player O</span> is the winner!')
+    ui.displayWinnner('o')
     return true
   } else {
     return false
@@ -190,7 +188,7 @@ const gameRestore = function (data) {
 }
 
 module.exports = {
-  currentGameTurn,
+  gameTurn,
   gameBoard,
   occupiedSector,
   updateBoard,

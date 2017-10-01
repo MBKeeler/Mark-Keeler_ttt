@@ -44,18 +44,29 @@ const onSignOut = function (event) {
 const clickSector = function (event) {
   const boardCell = $(event.target).attr('id')
   event.preventDefault()
-  const num = gameLogic.gameTurn
-  // determine turn
-  const player = gameLogic.currentTurn(num)
-  console.log('true is 0 false is x: ', player)
-  console.log('click selector thinks its turn', num)
+  const num = window.gameTurn
+  // determine who's turn
+  gameLogic.currentTurn(num)
   if (gameLogic.currentTurn(num) === true) {
-    gameLogic.updateBoard(boardCell, 'o')
+    console.log(event.target, 'o')
+    const sectorCheck = gameLogic.updateBoard(boardCell, 'o')
+    if (sectorCheck === true) {
+      console.log('events.js', sectorCheck)
+      ui.displayToken(event.target, 'o')
+    } else {
+      ui.sectorIsOccupied()
+    }
   } else {
-    gameLogic.updateBoard(boardCell, 'x')
+    console.log(event.target, 'x')
+    const sectorCheck = gameLogic.updateBoard(boardCell, 'x')
+    if (sectorCheck === true) {
+      console.log('events.js', sectorCheck)
+      ui.displayToken(event.target, 'x')
+    } else {
+      console.log('events.js', sectorCheck)
+      ui.sectorIsOccupied()
+    }
   }
-  // gameLogic.occupiedSector(gameLogic.gameBoard, boardCell)
-  // gameLogic.updateBoard(boardCell, 'x', num)
 }
 
 // handler definitions and module exports

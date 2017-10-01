@@ -5,12 +5,12 @@ const store = require('../store')
 // modify these functions to conform with ttt game api
 const signUpSuccess = function (data) {
   console.log(data)
-  $('#message').html('You have signed up <span style="color:green">successfully</span>')
+  $('#message').html('You have signed up <span style="color:#00ff00">successfully</span>')
 }
 
 const signUpFailure = function (error) {
   console.error(error)
-  $('#message').html('Sign up has <span style="color:red">failed</span>')
+  $('#message').html('Sign up has <span style="color:#ff0000">failed</span>')
 }
 
 // modify these functions to conform with ttt game api
@@ -23,7 +23,7 @@ const signInSuccess = function (data) {
 
 const signInFailure = function (error) {
   console.error(error)
-  $('#message').html('Sign In <span style="color:red">failed</span>')
+  $('#message').html('Sign In <span style="color:#ff0000">failed</span>')
 }
 
 const signOutSuccess = function () {
@@ -35,13 +35,39 @@ const signOutSuccess = function () {
 
 const signOutFailure = function (error) {
   console.error(error)
-  $('#message').html('Sign Out  <span style="color:red">Failed</span>')
+  $('#message').html('Sign Out  <span style="color:#ff0000">Failed</span>')
 }
 
 // begin game logic messages
 const sectorIsOccupied = function () {
   console.log('Sector is occupied')
-  $('#message').html('Sector Occupied <span style="color:red">Select Another Sector</span>')
+  $('#message').html('<span style="color:#ff0000">Sector Already Occupied</span> Try Another Sector')
+}
+
+const displayToken = function (cell, playerValue) {
+  console.log('displayToken called')
+  if (playerValue === 'o') {
+    $(cell).html('<img src="../assets/images/tiefighter.jpeg" alt="player O" heigh="90" width="110" align="middle">')
+    $('#message').html('Sector is now under your control!  Well done captain O.</span>')
+  } else {
+    $(cell).html('<img src="../assets/images/xwing.jpeg" alt="player X" heigh="90" width="110" align="middle">')
+    $('#message').html('Sector is now under your control!  Well done captain X.</span>')
+  }
+}
+
+const displayWinnner = function (playerValue) {
+  console.log('displayWinnner was called')
+  if (playerValue === 'o') {
+    $('#message2').html('<span style="color:green">Player O</span> is the winner!')
+  } else {
+    $('#message2').html('<span style="color:green">Player X</span> is the winner!')
+  }
+}
+
+const displayGameOver = function () {
+  console.log('displayGameOver was called')
+  $('#message').html('There are No More Sectors To Conquer and no winner.')
+  $('#message2').html('<span style="color:#ff0000>Game Over!</span>')
 }
 
 module.exports = {
@@ -51,5 +77,8 @@ module.exports = {
   signInFailure,
   signOutSuccess,
   signOutFailure,
-  sectorIsOccupied
+  sectorIsOccupied,
+  displayToken,
+  displayWinnner,
+  displayGameOver
 }
