@@ -50,6 +50,7 @@ const updateBoard = function (index, value) {
   if (checkSector === false) {
     console.log('we now assume sector is unoccupied and update the board', checkSector)
     gameBoard[index] = value
+    ui.displayGameTurn(window.gameTurn)
     checkWinner(gameBoard)
     currentGameTurn()
     // save game code here
@@ -61,12 +62,12 @@ const updateBoard = function (index, value) {
 }
 
 // checks for any empty sectors
-// const emptySectors = function (element, index, array) {
-//   return element === '*'
-// }
-// const checkGameContinues = function () {
-//   gameBoard.some(emptySectors)
-// }
+const emptySectors = function (element) {
+  return element === '*'
+}
+const checkGameContinues = function () {
+  gameBoard.some(emptySectors)
+}
 
 // turn checker
 const currentTurn = function (turn) {
@@ -191,6 +192,7 @@ module.exports = {
   gameTurn,
   gameBoard,
   occupiedSector,
+  checkGameContinues,
   updateBoard,
   checkWinner,
   gameCreate,

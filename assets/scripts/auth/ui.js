@@ -40,7 +40,7 @@ const signOutFailure = function (error) {
 
 // begin game logic messages
 const displayGameTurn = function (turn) {
-  $('#message2').html('Try Another Sector')
+  $('#message3a').html(turn)
 }
 
 const sectorIsOccupied = function () {
@@ -51,10 +51,10 @@ const sectorIsOccupied = function () {
 const displayToken = function (cell, playerValue) {
   console.log('displayToken called')
   if (playerValue === 'o') {
-    $(cell).html('<img src="../assets/images/tiefighter.jpeg" alt="player O" heigh="90" width="110" align="middle">')
+    $(cell).html('<img src="../assets/images/tiefighter.jpeg" alt="player O" height="100" width="110" align="middle">')
     $('#message').html('Sector is now under your control!  Well done captain O.</span>')
   } else {
-    $(cell).html('<img src="../assets/images/xwing.jpeg" alt="player X" heigh="90" width="110" align="middle">')
+    $(cell).html('<img src="../assets/images/xwing.jpeg" alt="player X" height="100" width="110" align="middle">')
     $('#message').html('Sector is now under your control!  Well done captain X.</span>')
   }
 }
@@ -63,20 +63,20 @@ const displayWinnner = function (playerValue) {
   console.log('displayWinnner was called')
   if (playerValue === 'o') {
     $('#message').html('The game is over.')
-    $('#message2').html('<span style="color:green">Player O</span> is the winner!')
-    $('.box_grid').fadeOut(3000)
+    $('#message2').html('<h4><span style="color:green">Player O</span> is the winner!</h4>')
+    $('.box_grid').fadeOut(2500)
   } else {
     $('#message').html('The game is over.')
-    $('#message2').html('<span style="color:green">Player X</span> is the winner!')
-    $('.box_grid').fadeOut(3000)
+    $('#message2').html('<h4><span style="color:green">Player X</span> is the winner!</h4>')
+    $('.box_grid').fadeOut(2500)
   }
 }
 
 const displayGameOver = function () {
   console.log('displayGameOver was called')
-  $('#message').html('There are No More Sectors To Conquer and no winner.')
+  $('#message').html('There are no more sectors to conquer and no winner.')
   $('#message2').html('<span style="color:#ff0000>Game Over!</span>')
-  $('.box_grid').hide()
+  $('.box_grid').fadeOut(2500)
 }
 
 module.exports = {
@@ -86,6 +86,7 @@ module.exports = {
   signInFailure,
   signOutSuccess,
   signOutFailure,
+  displayGameTurn,
   sectorIsOccupied,
   displayToken,
   displayWinnner,

@@ -5,10 +5,13 @@
 }
 
 div {
-
   margin: auto;
 /*  border: 1px solid $defaultBoarderColor; */
   text-align: center;
+}
+
+.gameTitle {
+  font-family: $titleFont
 }
 
 .gameBoard {
