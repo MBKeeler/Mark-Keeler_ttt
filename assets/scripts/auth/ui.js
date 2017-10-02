@@ -39,6 +39,10 @@ const signOutFailure = function (error) {
 }
 
 // begin game logic messages
+const displayGameTurn = function (turn) {
+  $('#message2').html('Try Another Sector')
+}
+
 const sectorIsOccupied = function () {
   console.log('Sector is occupied')
   $('#message').html('<span style="color:#ff0000">Sector Already Occupied</span> Try Another Sector')
@@ -58,9 +62,13 @@ const displayToken = function (cell, playerValue) {
 const displayWinnner = function (playerValue) {
   console.log('displayWinnner was called')
   if (playerValue === 'o') {
+    $('#message').html('The game is over.')
     $('#message2').html('<span style="color:green">Player O</span> is the winner!')
+    $('.box_grid').fadeOut(3000)
   } else {
+    $('#message').html('The game is over.')
     $('#message2').html('<span style="color:green">Player X</span> is the winner!')
+    $('.box_grid').fadeOut(3000)
   }
 }
 
@@ -68,6 +76,7 @@ const displayGameOver = function () {
   console.log('displayGameOver was called')
   $('#message').html('There are No More Sectors To Conquer and no winner.')
   $('#message2').html('<span style="color:#ff0000>Game Over!</span>')
+  $('.box_grid').hide()
 }
 
 module.exports = {

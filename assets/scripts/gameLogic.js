@@ -82,67 +82,67 @@ const currentTurn = function (turn) {
 // create stub of check winner function.
 const checkWinner = function (array) {
   console.log('checkWinner() has this array: ', array) // just checks to make sure function is called
-  if (array[0] && array[1] && array[2] === 'x') { // begin row by row check
+  if (array[0] === 'x' && array[1] === 'x' && array[2] === 'x') { // begin row by row check
     console.log('X is the winner')
     ui.displayWinnner('x')
     return true
-  } else if (array[0] && array[1] && array[2] === 'o') {
+  } else if (array[0] === 'o' && array[1] === 'o' && array[2] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     return true
-  } else if (array[3] && array[4] && array[5] === 'x') {
+  } else if (array[3] === 'x' && array[4] === 'x' && array[5] === 'x') {
     console.log('X is the winner')
     ui.displayWinnner('x')
     return true
-  } else if (array[3] && array[4] && array[5] === 'o') {
+  } else if (array[3] === 'o' && array[4] === 'o' && array[5] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     return true
-  } else if (array[6] && array[7] && array[8] === 'x') {
+  } else if (array[6] === 'x' && array[7] === 'x' && array[8] === 'x') {
     console.log('X is the winner')
     ui.displayWinnner('x')
     return true
-  } else if (array[6] && array[7] && array[8] === 'o') {
+  } else if (array[6] === 'o' && array[7] === 'o' && array[8] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     return true
-  } else if (array[0] && array[3] && array[6] === 'x') { // begin column by column check
+  } else if (array[0] === 'x' && array[3] === 'x' && array[6] === 'x') { // begin column by column check
     console.log('X is the winner')
     ui.displayWinnner('x')
     return true
-  } else if (array[0] && array[3] && array[6] === 'o') {
+  } else if (array[0] === 'o' && array[3] === 'o' && array[6] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     return true
-  } else if (array[1] && array[4] && array[7] === 'x') {
+  } else if (array[1] === 'x' && array[4] === 'x' && array[7] === 'x') {
     console.log('X is the winner')
     ui.displayWinnner('x')
     return true
-  } else if (array[1] && array[4] && array[7] === 'o') {
+  } else if (array[1] === 'o' && array[4] === 'o' && array[7] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     return true
-  } else if (array[2] && array[5] && array[8] === 'x') {
+  } else if (array[2] === 'x' && array[5] === 'x' && array[8] === 'x') {
     console.log('X is the winner')
     ui.displayWinnner('x')
     return true
-  } else if (array[2] && array[5] && array[8] === 'o') {
+  } else if (array[2] === 'o' && array[5] === 'o' && array[8] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     return true
-  } else if (array[0] && array[4] && array[8] === 'x') { // begin diagonal check
+  } else if (array[0] === 'x' && array[4] === 'x' && array[8] === 'x') { // begin diagonal check
     console.log('X is the winner')
     ui.displayWinnner('x')
     return true
-  } else if (array[0] && array[4] && array[8] === 'o') {
+  } else if (array[0] === 'o' && array[4] === 'o' && array[8] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     return true
-  } else if (array[2] && array[4] && array[6] === 'x') {
+  } else if (array[2] === 'x' && array[4] === 'x' && array[6] === 'x') {
     console.log('X is the winner')
     ui.displayWinnner('x')
     return true
-  } else if (array[2] && array[4] && array[6] === 'o') {
+  } else if (array[2] === 'o' && array[4] === 'o' && array[6] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     return true

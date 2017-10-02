@@ -44,7 +44,10 @@ const onSignOut = function (event) {
 const clickSector = function (event) {
   const boardCell = $(event.target).attr('id')
   event.preventDefault()
+  // get the current turn
   const num = window.gameTurn
+  // display the turn
+  ui.displayTurn
   // determine who's turn
   gameLogic.currentTurn(num)
   if (gameLogic.currentTurn(num) === true) {
