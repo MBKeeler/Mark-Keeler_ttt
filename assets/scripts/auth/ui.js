@@ -48,19 +48,27 @@ const sectorIsOccupied = function () {
   $('#message').html('<span style="color:#ff0000">Sector Already Occupied</span> Try Another Sector')
 }
 
+// const displayToken = function (cell, playerValue) {
+//   if (playerValue === 'o') {
+//     $(cell).html('<img src="../assets/images/tiefighter.jpeg" alt="player O" height="100" width="110" align="middle">')
+//   } else {
+//     $(cell).html('<img src="../assets/images/xwing.jpeg" alt="player X" height="100" width="110" align="middle">')
+//     $('#message').html('Sector is now under your control!  Well done captain X.</span>')
+//   }
+// }
+
 const displayToken = function (cell, playerValue) {
-  console.log('displayToken called')
   if (playerValue === 'o') {
-    $(cell).html('<img src="../assets/images/tiefighter.jpeg" alt="player O" height="100" width="110" align="middle">')
+    $(cell).html('<a href="https://imgur.com/unoLQ1V"><img src="https://i.imgur.com/unoLQ1V.jpg" title="source: imgur.com"  alt=“Tie Figther” width=“100” height=“100”/></a>')
     $('#message').html('Sector is now under your control!  Well done captain O.</span>')
   } else {
-    $(cell).html('<img src="../assets/images/xwing.jpeg" alt="player X" height="100" width="110" align="middle">')
+    $(cell).html('<a href="https://imgur.com/z7sreVd"><img src="https://i.imgur.com/z7sreVd.jpg" title="source: imgur.com" alt=“Xwing” width="100" height="110"/></a>')
     $('#message').html('Sector is now under your control!  Well done captain X.</span>')
   }
 }
 
 const displayWinnner = function (playerValue) {
-  console.log('displayWinnner was called')
+//  console.log('displayWinnner was called')
   if (playerValue === 'o') {
     $('#message').html('The game is over.')
     $('#message2').html('<h4><span style="color:green">Player O</span> is the winner!</h4>')
@@ -73,7 +81,7 @@ const displayWinnner = function (playerValue) {
 }
 
 const displayGameOver = function () {
-  console.log('displayGameOver was called')
+  // console.log('displayGameOver was called')
   $('#message').html('There are no more sectors to conquer and no winner.')
   $('#message2').html('<span style="color:#ff0000>Game Over!</span>')
   $('.box_grid').fadeOut(2500)

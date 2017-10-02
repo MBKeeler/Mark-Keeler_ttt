@@ -27,8 +27,8 @@ const resetGame = function (array) {
 
 const occupiedSector = function (index) {
   const array = gameBoard
-  console.log('occupiedSectors array is: ', array)
-  console.log('occupiedSector index is:', index)
+  // console.log('occupiedSectors array is: ', array)
+  // console.log('occupiedSector index is:', index)
   if (array[index] === '*') {
     console.log('unoccupied')
     return false
@@ -45,10 +45,10 @@ const occupiedSector = function (index) {
 
 // update gameBoardArray
 const updateBoard = function (index, value) {
-  console.log('updateBoard index value ', index)
+  // console.log('updateBoard index value ', index)
   const checkSector = occupiedSector(index)
   if (checkSector === false) {
-    console.log('we now assume sector is unoccupied and update the board', checkSector)
+    // console.log('we now assume sector is unoccupied and update the board', checkSector)
     gameBoard[index] = value
     ui.displayGameTurn(window.gameTurn)
     checkWinner(gameBoard)

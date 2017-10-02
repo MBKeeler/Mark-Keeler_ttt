@@ -10,7 +10,7 @@ const events = require('../index')
 const onSignUp = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  console.log('sign-up', data)
+//  console.log('sign-up', data)
   api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.signUpFailure)
@@ -20,8 +20,8 @@ const onSignUp = function (event) {
 const onSignIn = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  console.log('sign-in', data)
-  console.log(data)
+//  console.log('sign-in', data)
+//  console.log(data)
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)
@@ -32,8 +32,8 @@ const onSignIn = function (event) {
 const onSignOut = function (event) {
   const data = getFormFields(this)
   event.preventDefault()
-  console.log('onSignOut: ', data)
-  console.log(data)
+//  console.log('onSignOut: ', data)
+//  console.log(data)
   api.signOut(data)
     .then(ui.signOutSuccess)
     .catch(ui.signOutFailure)
@@ -49,22 +49,22 @@ const clickSector = function (event) {
   // determine who's turn
   gameLogic.currentTurn(num)
   if (gameLogic.currentTurn(num) === true) {
-    console.log(event.target, 'o')
+//    console.log(event.target, 'o')
     const sectorCheck = gameLogic.updateBoard(boardCell, 'o')
     if (sectorCheck === true) {
-      console.log('events.js', sectorCheck)
+//    console.log('events.js', sectorCheck)
       ui.displayToken(event.target, 'o')
     } else {
       ui.sectorIsOccupied()
     }
   } else {
-    console.log(event.target, 'x')
+//    console.log(event.target, 'x')
     const sectorCheck = gameLogic.updateBoard(boardCell, 'x')
     if (sectorCheck === true) {
-      console.log('events.js', sectorCheck)
+//      console.log('events.js', sectorCheck)
       ui.displayToken(event.target, 'x')
     } else {
-      console.log('events.js', sectorCheck)
+//      console.log('events.js', sectorCheck)
       ui.sectorIsOccupied()
     }
   }
