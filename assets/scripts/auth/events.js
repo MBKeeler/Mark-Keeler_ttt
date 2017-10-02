@@ -70,6 +70,9 @@ const clickSector = function (event) {
   }
 }
 
+const resetGame = function () {
+  gameLogic.resetGame()
+}
 // handler definitions and module exports
 
 const addHandlers = function () {
@@ -77,9 +80,11 @@ const addHandlers = function () {
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
   $('#box_grid div').on('click', clickSector)
+  $('#resetButton').on('click', resetGame)
 }
 
 module.exports = {
   addHandlers,
-  clickSector
+  clickSector,
+  resetGame
 }

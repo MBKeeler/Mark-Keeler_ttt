@@ -71,12 +71,14 @@ const displayWinnner = function (playerValue) {
 //  console.log('displayWinnner was called')
   if (playerValue === 'o') {
     $('#message').html('The game is over.')
-    $('#message2').html('<h4><span style="color:green">Player O</span> is the winner!</h4>')
+    $('#message2').html('<h4><span style="color:green">Player O</span> is the winner! </h4>')
     $('.box_grid').fadeOut(2500)
+    $('#message2a').html('<button type=event name="reset">Reset Game</button>').fadeIn(2000)
   } else {
     $('#message').html('The game is over.')
     $('#message2').html('<h4><span style="color:green">Player X</span> is the winner!</h4>')
     $('.box_grid').fadeOut(2500)
+    $('#message2a').html('<form class="resetButton"><button type=submit name="submit">Reset Game</button></form>').fadeIn(2000)
   }
 }
 
@@ -84,6 +86,10 @@ const displayGameOver = function () {
   // console.log('displayGameOver was called')
   $('#message').html('There are no more sectors to conquer and no winner.')
   $('#message2').html('<span style="color:#ff0000>Game Over!</span>')
+  $('.box_grid').fadeOut(2500)
+}
+
+const resetBoard = function () {
   $('.box_grid').fadeOut(2500)
 }
 
@@ -98,5 +104,6 @@ module.exports = {
   sectorIsOccupied,
   displayToken,
   displayWinnner,
-  displayGameOver
+  displayGameOver,
+  resetBoard
 }

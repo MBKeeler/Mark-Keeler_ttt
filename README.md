@@ -14,11 +14,12 @@ line of three sectors within the quadrant will be deemed the winner.
 ## Known Issues
  As of v.1 the following know issues exist
 -- the required networking features to save a game state is unfinished
--- game reset has not be implemented.  Game is reset by browser refresh.
 -- game tie code has not be implemented
 -- the game is not fully responsive
 -- console.log lines left in for the network sign-in and error handling
 -- background images do not appear to be supported in the framework used.
+-- And I managed to deploy to the wrong location
+
 
 ## Technologies Used
 

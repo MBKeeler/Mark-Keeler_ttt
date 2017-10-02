@@ -21,6 +21,7 @@ const resetGame = function (array) {
     // need some jquery code to clear the board UI
   }
   gameBoard = array
+  ui.resetBoard()
 }
 
 // check to see if sector is occupied
@@ -191,6 +192,7 @@ const gameRestore = function (data) {
 module.exports = {
   gameTurn,
   gameBoard,
+  resetGame,
   occupiedSector,
   checkGameContinues,
   updateBoard,
