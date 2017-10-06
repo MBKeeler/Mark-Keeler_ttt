@@ -83,7 +83,7 @@ const currentTurn = function (turn) {
 
 // create stub of check winner function.
 const checkWinner = function (array) {
-  console.log('checkWinner() has this array: ', array) // just checks to make sure function is called
+  //console.log('checkWinner() has this array: ', array) // just checks to make sure function is called
   if (array[0] === 'x' && array[1] === 'x' && array[2] === 'x') { // begin row by row check
     console.log('X is the winner')
     ui.displayWinnner('x')
