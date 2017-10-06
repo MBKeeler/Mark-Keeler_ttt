@@ -12,12 +12,27 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
+<!-- Sign In Options -->
+      <div class="menu">
+        <ul class="nav">
+          <li class="navItem" data-toggle="modal" data-target="#signInModal">Sign In</li>
+          <li class="navItem" data-toggle="modal" data-target="#signUpModal">Sign Up</li>
+          <li class="navItem" data-toggle="modal"data-target="#changePWModal">Change Password</li>
+          <li class="navItem" data-toggle="modal"data-target="#logOutModal">Log Out</li>
+
+      </ul>
+      </div>
+<!-- Simple title Mastehead -->
 
       <div class="gameTitle"><h1>Galactic Tic Tac Toe</h1></div>
 
+<!-- Message Center -->
+    <div id="message"><h5>Game Messages:</h5></div>
+    <div id="message3">Turn: <span id="message3a"></span> </div>
+
+<!-- Begin Game Board  -->
       <div class="gameBoard">
-          <div id='message'><h5>Game Messages:</h5></div>
-        <div id"message3">Turn: <span id="message3a"></span> </div>
+
         <div class="col-xs-4 col-md-4 box_grid" id='0'>Sector 1.1
         </div>
 
@@ -53,35 +68,136 @@
         <div id='message2a'></div>
       </div>
 
-      <div class="loginRegisterContainder">
-        <div class="login">
-          <form id="sign-in">
-            <fieldset>
-              <legend>Login Captain</legend>
-              <input type="text" name="credentials[email]"  placeholder="Enter Username">
-              <br>
-              <input type="password" name="credentials[password]"  placeholder="Password">
-              <br>
-              <input type="submit" name="submit" value="Login as Captain:">
-          </fieldset>
-          </form>
-          </div>
-        <div class="register">
-          <form id="sign-up">
-            <fieldset>
-              <legend>Register New Captain</legend>
-                <br>
-                <input type="text" name="credentials[email]" value=""="Enter a Username">
-                <br>
-                <input type="password" name="credentials[password]" value="Password">
-                <br>
-                <input type="password" name="credentials[password_confirmation]" value="Confirm Password">
-                <br>
-                <input type="submit" name="submit" value="Register New Captain!">
-            </fieldset>
-          </form>
-        </div>
+<!-- start sign in modal -->
+<div class="modal fade" id="signInModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signInModal">Sign In</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
       </div>
+      <div class="modal-body">
+        <form id="sign-in">
+          <fieldset>
+            <legend>Login Captain</legend>
+            <input type="text" name="credentials[email]"  placeholder="Enter Username">
+            <br>
+            <input type="password" name="credentials[password]"  placeholder="Password">
+            <br>
+            <!-- <input type="submit" name="submit" value="Login as Captain:"> -->
+        </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" name="submit" value="Login as a Captain"class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Log In</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end sign in modal -->
+
+<!-- start sign up modal -->
+<div class="modal fade" id="signUpModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="signUpModal">Register New User</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="sign-up">
+          <fieldset>
+            <legend>Register New Captain</legend>
+              <br>
+              <input type="text" name="credentials[email]" value=""="Enter a Username">
+              <br>
+              <input type="password" name="credentials[password]" value="Password">
+              <br>
+              <input type="password" name="credentials[password_confirmation]" value="Confirm Password">
+              <br>
+              <input type="submit" name="submit" value="Register New Captain!">
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" name="submit" value="Login as a Captain"class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Log In</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end sign up modal -->
+
+<!-- start sign up modal -->
+<div class="modal fade" id="changePWModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="changePWModal">Change Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="sign-up">
+          <fieldset>
+            <legend>Change Password</legend>
+              <br>
+              <input type="password" name="credentials[password]" value="Password">
+              <br>
+              <input type="password" name="credentials[password_confirmation]" value="Confirm Password">
+              <br>
+              <input type="submit" name="submit" value="Register New Captain!">
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" name="submit" value="Login as a Captain"class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Log In</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end change pw modal -->
+
+<!-- start log out modal -->
+<div class="modal fade" id="logOutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="lgoOutModal">Log Out</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="sign-up">
+          <fieldset>
+            <legend>Log Out</legend>
+              <br>
+              <input type="text" name="credentials[email]" value=""="Enter a Username">
+              <br>
+              <input type="password" name="credentials[password]" value="Password">
+              <br>
+              <input type="password" name="credentials[password_confirmation]" value="Confirm Password">
+              <br>
+              <input type="submit" name="submit" value="Log Out">
+          </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" name="submit" value="Log Out"class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Log In</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end log out modal -->
 
     </body>
 </html>

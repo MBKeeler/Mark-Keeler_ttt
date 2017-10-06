@@ -5,6 +5,7 @@ const store = require('../store')
 // modify these functions to conform with ttt game api
 const signUpSuccess = function (data) {
   console.log(data)
+  $("#dialog").dialog();
   $('#message').html('You have signed up <span style="color:#00ff00">successfully</span>')
 }
 
