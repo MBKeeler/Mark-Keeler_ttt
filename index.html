@@ -86,13 +86,14 @@
             <br>
             <input type="password" name="credentials[password]"  placeholder="Password">
             <br>
+            <button type="submit" name="submit" value="Login as a Captain" class="btn btn-primary">Log In</button>
             <!-- <input type="submit" name="submit" value="Login as Captain:"> -->
         </fieldset>
         </form>
+        <p><span class="modalMessage"></span></p>
       </div>
       <div class="modal-footer">
-        <button type="submit" name="submit" value="Login as a Captain"class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Log In</button>
+        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
     </div>
   </div>
@@ -120,13 +121,14 @@
               <br>
               <input type="password" name="credentials[password_confirmation]" value="Confirm Password">
               <br>
-              <input type="submit" name="submit" value="Register New Captain!">
+              <button type="submit" name="submit" value="Register New Captain!" type="button" class="btn btn-primary">Log In</button>
           </fieldset>
+          <span class="modalMessage"></span>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="submit" name="submit" value="Login as a Captain"class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Log In</button>
+        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+
       </div>
     </div>
   </div>
@@ -144,7 +146,7 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="sign-up">
+        <form id="change-password">
           <fieldset>
             <legend>Change Password</legend>
               <br>
@@ -154,6 +156,7 @@
               <br>
               <input type="submit" name="submit" value="Register New Captain!">
           </fieldset>
+          <span class="modalMessage"></span>
         </form>
       </div>
       <div class="modal-footer">
@@ -176,23 +179,17 @@
         </button>
       </div>
       <div class="modal-body">
-        <form id="sign-up">
+        <form id="sign-out">
           <fieldset>
             <legend>Log Out</legend>
-              <br>
-              <input type="text" name="credentials[email]" value=""="Enter a Username">
-              <br>
-              <input type="password" name="credentials[password]" value="Password">
-              <br>
-              <input type="password" name="credentials[password_confirmation]" value="Confirm Password">
-              <br>
-              <input type="submit" name="submit" value="Log Out">
+              <button type="submit" name="submit" value="Log Out" class="btn btn-primary">Log Out</button>
           </fieldset>
+          <span class="modalMessage"></span>
         </form>
       </div>
       <div class="modal-footer">
         <button type="submit" name="submit" value="Log Out"class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Log In</button>
+
       </div>
     </div>
   </div>
