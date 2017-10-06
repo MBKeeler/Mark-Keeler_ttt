@@ -12,12 +12,25 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body class="container-fluid">
+<!-- Sign In Options -->
+      <div class="menu">
+        <ul class="nav">
+          <li class="navItem" data-toggle="modal" data-target="#exampleModal">Sign In</li>
+          <li class="navItem" data-toggle="modal" data-target="#exampleModal">Sign Up</li>
+          <li class="navItem" data-toggle="modal" data-target="#exampleModal">modal</li>
+      </ul>
+      </div>
+<!-- Simple title Mastehead -->
 
       <div class="gameTitle"><h1>Galactic Tic Tac Toe</h1></div>
 
+<!-- Message Center -->
+    <div id="message"><h5>Game Messages:</h5></div>
+    <div id="message3">Turn: <span id="message3a"></span> </div>
+
+<!-- Begin Game Board  -->
       <div class="gameBoard">
-          <div id='message'><h5>Game Messages:</h5></div>
-        <div id"message3">Turn: <span id="message3a"></span> </div>
+
         <div class="col-xs-4 col-md-4 box_grid" id='0'>Sector 1.1
         </div>
 
@@ -52,6 +65,38 @@
         <div id='message2'></div>
         <div id='message2a'></div>
       </div>
+
+<!-- start modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="sign-in">
+          <fieldset>
+            <legend>Login Captain</legend>
+            <input type="text" name="credentials[email]"  placeholder="Enter Username">
+            <br>
+            <input type="password" name="credentials[password]"  placeholder="Password">
+            <br>
+            <!-- <input type="submit" name="submit" value="Login as Captain:"> -->
+        </fieldset>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="submit" name="submit" value="Login as a Captain"class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Log In</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal -->
+
 
       <div class="loginRegisterContainder">
         <div class="login">

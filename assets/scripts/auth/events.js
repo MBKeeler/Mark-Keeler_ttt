@@ -49,22 +49,22 @@ const clickSector = function (event) {
   // determine who's turn
   gameLogic.currentTurn(num)
   if (gameLogic.currentTurn(num) === true) {
-//    console.log(event.target, 'o')
+    // console.log(event.target, 'o')
     const sectorCheck = gameLogic.updateBoard(boardCell, 'o')
     if (sectorCheck === true) {
-//    console.log('events.js', sectorCheck)
+      // console.log('events.js', sectorCheck)
       ui.displayToken(event.target, 'o')
     } else {
       ui.sectorIsOccupied()
     }
   } else {
-//    console.log(event.target, 'x')
+    //  console.log(event.target, 'x')
     const sectorCheck = gameLogic.updateBoard(boardCell, 'x')
     if (sectorCheck === true) {
-//      console.log('events.js', sectorCheck)
+      // console.log('events.js', sectorCheck)
       ui.displayToken(event.target, 'x')
     } else {
-//      console.log('events.js', sectorCheck)
+      // console.log('events.js', sectorCheck)
       ui.sectorIsOccupied()
     }
   }

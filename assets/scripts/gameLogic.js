@@ -11,21 +11,19 @@ const currentGameTurn = function () {
   return gameTurn
 }
 
-// create basic array for test purposes
+// Our array for the Game board
 let gameBoard = ['*', '*', '*', '*', '*', '*', '*', '*', '*']
 
-// stub of create new game
+// Create a new game
 const resetGame = function (array) {
   for (let i = 0; i < array.length; i++) {
     array[i] = '*'
-    // need some jquery code to clear the board UI
   }
   gameBoard = array
   ui.resetBoard()
 }
 
-// check to see if sector is occupied
-
+// Check to see if sector is occupied
 const occupiedSector = function (index) {
   const array = gameBoard
   // console.log('occupiedSectors array is: ', array)
@@ -44,7 +42,7 @@ const occupiedSector = function (index) {
   }
 }
 
-// update gameBoardArray
+// Update gameBoardArray and primary logic in
 const updateBoard = function (index, value) {
   // console.log('updateBoard index value ', index)
   const checkSector = occupiedSector(index)
@@ -57,12 +55,12 @@ const updateBoard = function (index, value) {
     // save game code here
     return true
   } else {
-    console.log('we now know the sector is occcupied and we deliver a message', checkSector)
+    // console.log('we now know the sector is occcupied and we deliver a message', checkSector)
     return false
   }
 }
 
-// checks for any empty sectors
+// checks for any empty sectors - Not implemented
 const emptySectors = function (element) {
   return element === '*'
 }
@@ -70,7 +68,7 @@ const checkGameContinues = function () {
   gameBoard.some(emptySectors)
 }
 
-// turn checker
+// Turn checker
 const currentTurn = function (turn) {
   if (turn % 2 === 0) {
     $('#message').html('Turn belongs to player <span style="color:green">O</span>')
@@ -81,7 +79,7 @@ const currentTurn = function (turn) {
   }
 }
 
-// create stub of check winner function.
+// Check winner function.
 const checkWinner = function (array) {
   console.log('checkWinner() has this array: ', array) // just checks to make sure function is called
   if (array[0] === 'x' && array[1] === 'x' && array[2] === 'x') { // begin row by row check

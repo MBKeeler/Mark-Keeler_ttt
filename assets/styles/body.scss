@@ -10,9 +10,34 @@ div {
   text-align: center;
 }
 
+.menu {
+  background-color: $defaultBoarderColor;
+  min-width: 100%;
+  min-height: 50px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  color: $contrastingTextColor;
+  position: fixed; /* Make it stick, even on scroll */
+  overflow: auto; /* Enable scrolling if the sidenav has too much content */
+}
+
+.navItem {
+  display: block;
+  width: 200px;
+  font-size: 14pnt;
+}
+
+.navItem:hover {
+  background-color: #d2d4d8;
+}
+
 .gameTitle {
   font-family: $titleFont
 }
+
+
 
 .gameBoard {
   width: 550px;
@@ -44,7 +69,7 @@ legend {
 
 input {
   font-size: $defaultFormTextSize;
-  color: $defaultTextColor;
+  color: $contrastingTextColor;
   background-color: $defaultTextBackground;
 }
 
@@ -61,5 +86,12 @@ input {
     /* For mobile phones: */
     [class*="col-"] {
         width: 100%;
+    }
+    .box_grid {
+      float: left;
+      border: 1px solid $defaultBoarderColor;
+      width: 120px;
+      height: 120px;
+      cursor: crosshair;
     }
 }
