@@ -75,6 +75,7 @@ input {
 
 .box_grid {
   float: left;
+  text-align: center;
   border: 1px solid $defaultBoarderColor;
   width: 180px;
   height: 180px;
@@ -94,6 +95,7 @@ input {
     }
     .box_grid {
       float: left;
+      text-align: center;
       border: 1px solid $defaultBoarderColor;
       width: 120px;
       height: 120px;

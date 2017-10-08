@@ -5,7 +5,7 @@ const store = require('../store')
 // modify these functions to conform with ttt game api
 const signUpSuccess = function (data) {
   console.log(data)
-  $("#dialog").dialog();
+  $('#dialog').dialog()
   $('#message').html('You have signed up <span style="color:#00ff00">successfully</span>')
 }
 
@@ -74,12 +74,12 @@ const displayWinnner = function (playerValue) {
     $('#message').html('The game is over.')
     $('#message2').html('<h4><span style="color:green">Player O</span> is the winner! </h4>')
     $('.box_grid').fadeOut(2500)
-    $('#message2a').html('<button type=event name="reset">Reset Game</button>').fadeIn(2000)
+    $('#message2a').html('<form id="resetButton"><button type="submit" name="submit">Reset Game</button></form>').fadeIn(2000)
   } else {
     $('#message').html('The game is over.')
     $('#message2').html('<h4><span style="color:green">Player X</span> is the winner!</h4>')
     $('.box_grid').fadeOut(2500)
-    $('#message2a').html('<form class="resetButton"><button type=submit name="submit">Reset Game</button></form>').fadeIn(2000)
+    $('#message2a').html('<form id="resetButton"><button type="submit" name="submit">Reset Game</button></form>').fadeIn(2000)
   }
 }
 
@@ -91,7 +91,12 @@ const displayGameOver = function () {
 }
 
 const resetBoard = function () {
-  $('.box_grid').fadeOut(2500)
+  $('.box_grid').fadeIn(2500)
+}
+
+const showScore = function (xScore, oScore) {
+  $('#message3b').html(xScore)
+  $('#message3c').html(oScore)
 }
 
 module.exports = {
@@ -106,5 +111,6 @@ module.exports = {
   displayToken,
   displayWinnner,
   displayGameOver,
-  resetBoard
+  resetBoard,
+  showScore
 }

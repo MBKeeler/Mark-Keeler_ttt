@@ -14,6 +14,21 @@ const currentGameTurn = function () {
 // Our array for the Game board
 let gameBoard = ['*', '*', '*', '*', '*', '*', '*', '*', '*']
 
+// score containers
+let playerXPoint = 0
+let playerOPoint = 0
+// score counter
+const currentScore = function (player) {
+  if (player === 'x') {
+    playerXPoint = playerXPoint + 1
+    console.log('playerX: ', playerXPoint)
+  } else {
+    playerOPoint = playerOPoint + 1
+    console.log('playerO: ', playerOPoint)
+  }
+  ui.showScore(playerXPoint, playerOPoint)
+}
+
 // Create a new game
 const resetGame = function (array) {
   for (let i = 0; i < array.length; i++) {
@@ -79,79 +94,95 @@ const currentTurn = function (turn) {
   }
 }
 
-// Check winner function.
+// Check winner function. First function written. Bloated code, but reliable
 const checkWinner = function (array) {
-  //console.log('checkWinner() has this array: ', array) // just checks to make sure function is called
+  // console.log('checkWinner() has this array: ', array) // just checks to make sure function is called
   if (array[0] === 'x' && array[1] === 'x' && array[2] === 'x') { // begin row by row check
     console.log('X is the winner')
     ui.displayWinnner('x')
+    currentScore('x')
     return true
   } else if (array[0] === 'o' && array[1] === 'o' && array[2] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
+    currentScore('o')
     return true
   } else if (array[3] === 'x' && array[4] === 'x' && array[5] === 'x') {
     console.log('X is the winner')
     ui.displayWinnner('x')
+    currentScore('x')
     return true
   } else if (array[3] === 'o' && array[4] === 'o' && array[5] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
+    currentScore('o')
     return true
   } else if (array[6] === 'x' && array[7] === 'x' && array[8] === 'x') {
     console.log('X is the winner')
     ui.displayWinnner('x')
+    currentScore('x')
     return true
   } else if (array[6] === 'o' && array[7] === 'o' && array[8] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
+    currentScore('o')
     return true
   } else if (array[0] === 'x' && array[3] === 'x' && array[6] === 'x') { // begin column by column check
     console.log('X is the winner')
     ui.displayWinnner('x')
+    currentScore('x')
     return true
   } else if (array[0] === 'o' && array[3] === 'o' && array[6] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
+    currentScore('o')
     return true
   } else if (array[1] === 'x' && array[4] === 'x' && array[7] === 'x') {
     console.log('X is the winner')
     ui.displayWinnner('x')
+    currentScore('x')
     return true
   } else if (array[1] === 'o' && array[4] === 'o' && array[7] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
+    currentScore('o')
     return true
   } else if (array[2] === 'x' && array[5] === 'x' && array[8] === 'x') {
     console.log('X is the winner')
     ui.displayWinnner('x')
+    currentScore('x')
     return true
   } else if (array[2] === 'o' && array[5] === 'o' && array[8] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
+    currentScore('o')
     return true
   } else if (array[0] === 'x' && array[4] === 'x' && array[8] === 'x') { // begin diagonal check
     console.log('X is the winner')
     ui.displayWinnner('x')
+    currentScore('x')
     return true
   } else if (array[0] === 'o' && array[4] === 'o' && array[8] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
+    currentScore('o')
     return true
   } else if (array[2] === 'x' && array[4] === 'x' && array[6] === 'x') {
     console.log('X is the winner')
     ui.displayWinnner('x')
+    currentScore('x')
     return true
   } else if (array[2] === 'o' && array[4] === 'o' && array[6] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
+    currentScore('o')
     return true
   } else {
     return false
   }
 }
 
-// stub of game create server record
+// stub of game create server record. You do NOT need to pass an array
 const gameCreate = function (data) {
   return $.ajax({
     url: config.apiOrigin + '/games',
@@ -194,6 +225,7 @@ module.exports = {
   occupiedSector,
   checkGameContinues,
   updateBoard,
+  currentScore,
   checkWinner,
   gameCreate,
   gameUpdate,
