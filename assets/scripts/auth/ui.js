@@ -39,6 +39,16 @@ const signOutFailure = function (error) {
   $('#message').html('Sign Out  <span style="color:#ff0000">Failed</span>')
 }
 
+const changePasswordSuccess = function () {
+  $('#message').text('Changed password successfully')
+  console.log('changePassword success ran. and nothing was returned')
+}
+
+const changePasswordFailure = function (error) {
+  $('#message').text('Error on change password')
+  console.log('changePassword failure ran. error is :', error)
+}
+
 // begin game logic messages
 const displayGameTurn = function (turn) {
   $('#message3a').html(turn)
@@ -60,10 +70,10 @@ const sectorIsOccupied = function () {
 
 const displayToken = function (cell, playerValue) {
   if (playerValue === 'o') {
-    $(cell).html('<a href="https://imgur.com/unoLQ1V"><img src="https://i.imgur.com/unoLQ1V.jpg" title="source: imgur.com"  alt=“Tie Figther” width=“100” height=“100”/></a>')
+    $(cell).html('<a href="https://imgur.com/unoLQ1V"><img src="https://i.imgur.com/unoLQ1V.jpg" title="source: imgur.com" class="gameTokenO"  alt=“Tie Figther” width=“100” height=“100”/></a>')
     $('#message').html('Sector is now under your control!  Well done captain O.</span>')
   } else {
-    $(cell).html('<a href="https://imgur.com/z7sreVd"><img src="https://i.imgur.com/z7sreVd.jpg" title="source: imgur.com" alt=“Xwing” width="100" height="110"/></a>')
+    $(cell).html('<a href="https://imgur.com/z7sreVd"><img src="https://i.imgur.com/z7sreVd.jpg" title="source: imgur.com" class="gameTokenX" alt=“Xwing” width="100" height="110"/></a>')
     $('#message').html('Sector is now under your control!  Well done captain X.</span>')
   }
 }
@@ -92,6 +102,7 @@ const displayGameOver = function () {
 
 const resetBoard = function () {
   $('.box_grid').fadeIn(2500)
+  $('.box_grid').empty()
 }
 
 const showScore = function (xScore, oScore) {
@@ -106,6 +117,8 @@ module.exports = {
   signInFailure,
   signOutSuccess,
   signOutFailure,
+  changePasswordSuccess,
+  changePasswordFailure,
   displayGameTurn,
   sectorIsOccupied,
   displayToken,

@@ -32,8 +32,64 @@ const signOut = function () {
   })
 }
 
+const changePassword = function (data) {
+  console.log('data is ', data)
+  return $.ajax({
+    url: config.apiOrigin + '/change-password/' + store.user.id,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+// create game
+const createGame = function (data) {
+  console.log('data is ', data)
+  return $.ajax({
+    url: config.apiOrigin + '/games',
+    method: 'POST',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+// save game
+const saveGame = function (data) {
+  console.log('data is ', data)
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.user.token,
+    method: 'PATCH',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
+// get game info
+
+const showGame = function (data) {
+  console.log('data is ', data)
+  return $.ajax({
+    url: config.apiOrigin + '/games/' + store.user.token,
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
-  signOut
+  signOut,
+  changePassword,
+  createGame,
+  saveGame,
+  showGame
 }

@@ -29,13 +29,14 @@ const currentScore = function (player) {
   ui.showScore(playerXPoint, playerOPoint)
 }
 
-// Create a new game
-const resetGame = function (array) {
+// Reset and Create a new game
+const resetGame = function () {
+  console.log('gamLogic gameReset Called')
+  const array = gameBoard
   for (let i = 0; i < array.length; i++) {
     array[i] = '*'
   }
   gameBoard = array
-  ui.resetBoard()
 }
 
 // Check to see if sector is occupied

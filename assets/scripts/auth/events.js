@@ -39,6 +39,27 @@ const onSignOut = function (event) {
     .catch(ui.signOutFailure)
 }
 
+// for change password
+const onChangePassword = function (event) {
+  event.preventDefault()
+  console.log('change password ran!')
+
+  const data = getFormFields(this)
+  api.changePassword(data)
+    .then(ui.changePasswordSuccess)
+    .catch(ui.changePasswordFailure)
+}
+// start code for game save/retrieve
+const saveGameState = function (event) {
+  event.preventDefault()
+  console.log('saveGameState ran!')
+
+  const data = getFormFields(this)
+  api.changePassword(data)
+    .then(ui.saveGameSuccess)
+    .catch(ui.saveGamFailure)
+}
+
 // code for Game UI handlers
 // let's just get the grid to update
 const clickSector = function (event) {
@@ -70,22 +91,28 @@ const clickSector = function (event) {
   }
 }
 
-const resetGame = function () {
-  gameLogic.resetGame()
+// reset the game array and board
+const resetGameBoard = function (event) {
   console.log('reset game called')
+  event.preventDefault()
+  gameLogic.resetGame()
+  ui.resetBoard()
 }
+
 // handler definitions and module exports
 
 const addHandlers = function () {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
   $('#sign-out').on('submit', onSignOut)
+  $('#change-password').on('submit', onChangePassword)
   $('#box_grid div').on('click', clickSector)
-  $('#resetButton').on('submit', resetGame)
+  $('#resetButton').on('submit', resetGameBoard)
 }
 
 module.exports = {
   addHandlers,
   clickSector,
-  resetGame
+  resetGameBoard,
+  saveGameState
 }

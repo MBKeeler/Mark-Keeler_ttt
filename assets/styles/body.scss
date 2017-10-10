@@ -37,8 +37,6 @@ div {
 margin-top: 85px;
 }
 
-
-
 .gameBoard {
   width: 550px;
   height: 600px;
@@ -94,11 +92,15 @@ input {
       margin: 50px auto;
     }
     .box_grid {
-      float: left;
-      text-align: center;
-      border: 1px solid $defaultBoarderColor;
       width: 120px;
       height: 120px;
-      cursor: crosshair;
+    }
+    .gameToken0 {
+      width: 90px;
+      height:90px;
+    }
+    .gameTokenX {
+      width: 90px;
+      height: 100px;
     }
 }
