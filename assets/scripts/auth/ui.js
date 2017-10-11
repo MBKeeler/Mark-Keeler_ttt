@@ -6,37 +6,48 @@ const store = require('../store')
 const signUpSuccess = function (data) {
   console.log(data)
   $('#dialog').dialog()
-  $('#message').html('You have signed up <span style="color:#00ff00">successfully</span>')
+  $('.modalMessage').html('You have signed up <span style="color:#00ff00">successfully</span>')
 }
 
 const signUpFailure = function (error) {
   console.error(error)
-  $('#message').html('Sign up has <span style="color:#ff0000">failed</span>')
+  $('.modalMessage').html('Sign up has <span style="color:#ff0000">failed</span>')
 }
 
 // modify these functions to conform with ttt game api
 const signInSuccess = function (data) {
   console.log(data)
-  $('#message').html('You have signed in <span style="color:green">successfully</span>')
+  $('#modalMessage').html('You have signed in <span style="color:green">successfully</span>')
   // we have to store the user data or header somwhere.  sto we will put it in ../store.js
   store.user = data.user
 }
 
 const signInFailure = function (error) {
   console.error(error)
-  $('#message').html('Sign In <span style="color:#ff0000">failed</span>')
+  $('.modalMessage').html('Sign In <span style="color:#ff0000">failed</span>')
 }
 
 const signOutSuccess = function () {
   // console.log(data)
-  $('#message').html('You have signed out <span style="color:green">successfully</span>')
+  $('.modalMessage').html('You have signed out <span style="color:green">successfully</span>')
   // need to clear memory of the user information which includes token and auth header
   store.user = null
 }
 
 const signOutFailure = function (error) {
   console.error(error)
-  $('#message').html('Sign Out  <span style="color:#ff0000">Failed</span>')
+  $('.modalMessage').html('Sign Out  <span style="color:#ff0000">Failed</span>')
+}
+const changePWSuccess = function (data) {
+  console.log(data)
+  $('.modalMessage').html('You have <span style="color:green">successfully</span> changed your password')
+  // need to clear memory of the user information which includes token and auth header
+  store.user = data.user
+}
+
+const changePWFailure = function (error) {
+  console.error(error)
+  $('.modalMessage').html('Change of Password  <span style="color:#ff0000">Failed</span>')
 }
 
 const changePasswordSuccess = function () {
