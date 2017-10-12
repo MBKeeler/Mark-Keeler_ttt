@@ -45,9 +45,10 @@ const onChangePassword = function (event) {
   console.log('change password ran!')
 
   const data = getFormFields(this)
-  api.changePassword(data)
-    .then(ui.changePasswordSuccess)
-    .catch(ui.changePasswordFailure)
+  console.log(data)
+  api.changePassWord(data)
+    .then(ui.changePWSuccess)
+    .catch(ui.changePWFailure)
 }
 // start code for game save/retrieve
 const saveGameState = function (event) {
@@ -55,7 +56,7 @@ const saveGameState = function (event) {
   console.log('saveGameState ran!')
 
   const data = getFormFields(this)
-  api.changePassword(data)
+  api.changePassWord(data)
     .then(ui.saveGameSuccess)
     .catch(ui.saveGamFailure)
 }
@@ -98,6 +99,11 @@ const resetGameBoard = function (event) {
   gameLogic.resetGame()
   ui.resetBoard()
 }
+
+// looking to
+// $( "#book" ).load(function() {
+//   // Handler for .load() called.
+// });
 
 // handler definitions and module exports
 

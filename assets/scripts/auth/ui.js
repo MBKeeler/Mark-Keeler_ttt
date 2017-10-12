@@ -5,59 +5,54 @@ const store = require('../store')
 // modify these functions to conform with ttt game api
 const signUpSuccess = function (data) {
   console.log(data)
-  $('#dialog').dialog()
-  $('.modalMessage').html('You have signed up <span style="color:#00ff00">successfully</span>')
+  $('#message3').html('You have signed up <span style="color:#00ff00">successfully</span>')
 }
 
 const signUpFailure = function (error) {
   console.error(error)
-  $('.modalMessage').html('Sign up has <span style="color:#ff0000">failed</span>')
+  $('#message3').html('Sign up has <span style="color:#ff0000">failed</span>')
 }
 
 // modify these functions to conform with ttt game api
 const signInSuccess = function (data) {
   console.log(data)
-  $('#modalMessage').html('You have signed in <span style="color:green">successfully</span>')
+  $('#message3').html('You have signed in <span style="color:green">successfully</span>')
+  $('#sign-in').hide()
+  $('#sign-up').hide()
+  $('#change-password').show()
+  $('#sign-out').show()
   // we have to store the user data or header somwhere.  sto we will put it in ../store.js
   store.user = data.user
 }
 
 const signInFailure = function (error) {
   console.error(error)
-  $('.modalMessage').html('Sign In <span style="color:#ff0000">failed</span>')
+  $('#message3').html('Sign In <span style="color:#ff0000">failed</span>')
 }
 
 const signOutSuccess = function () {
   // console.log(data)
-  $('.modalMessage').html('You have signed out <span style="color:green">successfully</span>')
+  $('#message3').html('You have signed out <span style="color:green">successfully</span>')
+  $('#sign-in').show()
+  $('#sign-up').show()
+  $('#change-password').hide()
+  $('#sign-out').hide()
   // need to clear memory of the user information which includes token and auth header
   store.user = null
 }
 
 const signOutFailure = function (error) {
   console.error(error)
-  $('.modalMessage').html('Sign Out  <span style="color:#ff0000">Failed</span>')
+  $('#message3').html('Sign Out  <span style="color:#ff0000">Failed</span>')
 }
-const changePWSuccess = function (data) {
-  console.log(data)
-  $('.modalMessage').html('You have <span style="color:green">successfully</span> changed your password')
+const changePWSuccess = function () {
+  $('#message3').html('You have <span style="color:green">successfully</span> changed your password')
   // need to clear memory of the user information which includes token and auth header
-  store.user = data.user
 }
 
 const changePWFailure = function (error) {
   console.error(error)
-  $('.modalMessage').html('Change of Password  <span style="color:#ff0000">Failed</span>')
-}
-
-const changePasswordSuccess = function () {
-  $('#message').text('Changed password successfully')
-  console.log('changePassword success ran. and nothing was returned')
-}
-
-const changePasswordFailure = function (error) {
-  $('#message').text('Error on change password')
-  console.log('changePassword failure ran. error is :', error)
+  $('#message3').html('Change of Password  <span style="color:#ff0000">Failed</span>')
 }
 
 // begin game logic messages
@@ -96,6 +91,7 @@ const displayWinnner = function (playerValue) {
     $('#message2').html('<h4><span style="color:green">Player O</span> is the winner! </h4>')
     $('.box_grid').fadeOut(2500)
     $('#message2a').html('<form id="resetButton"><button type="submit" name="submit">Reset Game</button></form>').fadeIn(2000)
+    $('#resetButton').on('submit', resetBoard)
   } else {
     $('#message').html('The game is over.')
     $('#message2').html('<h4><span style="color:green">Player X</span> is the winner!</h4>')
@@ -112,6 +108,7 @@ const displayGameOver = function () {
 }
 
 const resetBoard = function () {
+  console.log('ui.js resetBoard called')
   $('.box_grid').fadeIn(2500)
   $('.box_grid').empty()
 }
@@ -128,8 +125,8 @@ module.exports = {
   signInFailure,
   signOutSuccess,
   signOutFailure,
-  changePasswordSuccess,
-  changePasswordFailure,
+  changePWSuccess,
+  changePWFailure,
   displayGameTurn,
   sectorIsOccupied,
   displayToken,

@@ -11,30 +11,12 @@ div {
   text-align: center;
 }
 
-.menu {
-  background-color: $defaultBoarderColor;
-  min-width: 100%;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  width: 200px;
-  color: $contrastingTextColor;
-  position: fixed; /* Make it stick, even on scroll */
-  overflow: auto; /* Enable scrolling if the sidenav has too much content */
-}
-
-.navItem {
-  display: block;
-  width: 200px;
-  font-size: 14pnt;
-}
-
-.navItem:hover {
-  background-color: $navItemContrastColor;
+#change-password, #sign-out {
+  display: none;
 }
 
 .gameTitle {
-margin-top: 85px;
+margin-top: 10px;
 }
 
 .gameBoard {

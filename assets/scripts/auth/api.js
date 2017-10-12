@@ -32,7 +32,7 @@ const signOut = function () {
   })
 }
 
-const changePassWord = function () {
+const changePassWord = function (data) {
   console.log('signOut called')
   return $.ajax({
     url: config.apiOrigin + '/change-password/' + store.user.id,
