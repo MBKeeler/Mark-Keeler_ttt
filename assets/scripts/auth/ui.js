@@ -67,16 +67,33 @@ const sectorIsOccupied = function () {
 
 // create/save/get game
 const createGameSuccess = function (data) {
-  // show gameBoard
+  // add code to show gameBoard
+  // $('.box_grid').fadeIn(2500)
+  // $('#message3').html('Game successfully  <span style="color:green">created</span>')
   store.game = data.game
 }
 
 const createGameFailure = function () {
 // put game message here
+// $('#message3').html('Create game  <span style="color:#ff0000">failed</span>')
 }
 
-const updateGame = function () {
+const updateGameSuccess = function () {
+// $('#message3').html('Game successfully  <span style="color:green">updated</span>')
+}
 
+const updateGameFailure = function () {
+// $('#message3').html('Update game  <span style="color:#ff0000">failed</span>')
+}
+
+const showGameSuccess = function () {
+// store.game = data.game
+// $('.box_grid').fadeIn(2500)
+// $('#message3').html('Game successfully  <span style="color:green">loaded</span>')
+}
+
+const showGameFailure = function () {
+// $('#message3').html('Game  <span style="color:#ff0000">failed</span> to load')
 }
 
 const displayToken = function (cell, playerValue) {
@@ -134,6 +151,10 @@ module.exports = {
   changePWFailure,
   createGameSuccess,
   createGameFailure,
+  updateGameSuccess,
+  updateGameFailure,
+  showGameSuccess,
+  showGameFailure,
   displayGameTurn,
   sectorIsOccupied,
   displayToken,
