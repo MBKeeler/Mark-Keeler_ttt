@@ -1,5 +1,6 @@
 'use strict'
 const getFormFields = require(`../../../lib/get-form-fields`)
+const store = require('../store')
 const api = require('./api')
 const ui = require('./ui')
 const gameLogic = require('../gameLogic')
@@ -89,18 +90,16 @@ const clickSector = function (event) {
       // console.log('events.js', sectorCheck)
       // let gameData = updateGame object from API
       // api.updateGame(dataObject)
-      // const gameData = {
-      //   'game': {
-      //     'id': 3,
-      //     'cells': ["","","","","","","","",""],
-      //     'over': false,
-      //     'player_x': {
-      //       'id': 1,
-      //       'email': "and@and.com"
-      //     },
-      //     'player_o': null
-      //   }
-      // }
+      const gameData = {
+        "game": {
+          "cell": {
+            "index": boardCell,
+            "value": "o"
+          },
+          "over": store.win
+        }
+      }
+
       api.updateGame(gameData)
       ui.displayToken(event.target, 'o')
     } else {
@@ -113,6 +112,15 @@ const clickSector = function (event) {
       // console.log('events.js', sectorCheck)
       // let data = updateGame object from API
       // api.updateGame(dataObject)
+      const gameData = {
+        "game": {
+          "cell": {
+            "index": boardCell,
+            "value": "x"
+          },
+          "over": store.win
+        }
+      }
       ui.displayToken(event.target, 'x')
     } else {
       // console.log('events.js', sectorCheck)

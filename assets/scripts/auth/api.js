@@ -59,12 +59,12 @@ const createGame = function () {
 const updateGame = function (gameData) {
   console.log('gmaeData is ', gameData)
   return $.ajax({
-    url: config.apiOrigin + '/games/' + store.user.token,
+    url: config.apiOrigin + 'games/' + store.game.id,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    gameData
+    data:gameData
   })
 }
 

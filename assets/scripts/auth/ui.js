@@ -68,14 +68,15 @@ const sectorIsOccupied = function () {
 // create/save/get game
 const createGameSuccess = function (data) {
   // add code to show gameBoard
-  // $('.box_grid').fadeIn(2500)
-  // $('#message3').html('Game successfully  <span style="color:green">created</span>')
+  console.log('gameCreate success')
+  $('.box_grid').fadeIn(2500)
+  $('#message3').html('Game successfully  <span style="color:green">created</span>')
   store.game = data.game
 }
 
 const createGameFailure = function () {
 // put game message here
-// $('#message3').html('Create game  <span style="color:#ff0000">failed</span>')
+  $('#message3').html('Create game  <span style="color:#ff0000">failed</span>')
 }
 
 const updateGameSuccess = function () {

@@ -103,46 +103,55 @@ const checkWinner = function (array) {
     console.log('X is the winner')
     ui.displayWinnner('x')
     currentScore('x')
+    store.win=true
     return true
   } else if (array[0] === 'o' && array[1] === 'o' && array[2] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     currentScore('o')
+    store.win=true
     return true
   } else if (array[3] === 'x' && array[4] === 'x' && array[5] === 'x') {
     console.log('X is the winner')
     ui.displayWinnner('x')
     currentScore('x')
+    store.win=true
     return true
   } else if (array[3] === 'o' && array[4] === 'o' && array[5] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     currentScore('o')
+    store.win=true
     return true
   } else if (array[6] === 'x' && array[7] === 'x' && array[8] === 'x') {
     console.log('X is the winner')
     ui.displayWinnner('x')
     currentScore('x')
+    store.win=true
     return true
   } else if (array[6] === 'o' && array[7] === 'o' && array[8] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     currentScore('o')
+    store.win=true
     return true
   } else if (array[0] === 'x' && array[3] === 'x' && array[6] === 'x') { // begin column by column check
     console.log('X is the winner')
     ui.displayWinnner('x')
     currentScore('x')
+    store.win=true
     return true
   } else if (array[0] === 'o' && array[3] === 'o' && array[6] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     currentScore('o')
+    store.win=true
     return true
   } else if (array[1] === 'x' && array[4] === 'x' && array[7] === 'x') {
     console.log('X is the winner')
     ui.displayWinnner('x')
     currentScore('x')
+    store.win=true
     return true
   } else if (array[1] === 'o' && array[4] === 'o' && array[7] === 'o') {
     console.log('O is the winner')
@@ -153,33 +162,40 @@ const checkWinner = function (array) {
     console.log('X is the winner')
     ui.displayWinnner('x')
     currentScore('x')
+    store.win=true
     return true
   } else if (array[2] === 'o' && array[5] === 'o' && array[8] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     currentScore('o')
+    store.win=true
     return true
   } else if (array[0] === 'x' && array[4] === 'x' && array[8] === 'x') { // begin diagonal check
     console.log('X is the winner')
     ui.displayWinnner('x')
     currentScore('x')
+    store.win=true
     return true
   } else if (array[0] === 'o' && array[4] === 'o' && array[8] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     currentScore('o')
+    store.win=true
     return true
   } else if (array[2] === 'x' && array[4] === 'x' && array[6] === 'x') {
     console.log('X is the winner')
     ui.displayWinnner('x')
     currentScore('x')
+    store.win=true
     return true
   } else if (array[2] === 'o' && array[4] === 'o' && array[6] === 'o') {
     console.log('O is the winner')
     ui.displayWinnner('o')
     currentScore('o')
+    store.win = true
     return true
   } else {
+    store.win = false
     return false
   }
 }
