@@ -54,9 +54,17 @@
         </div>
         <div id='message2'></div>
         <div id='message2a'></div>
-        <button id="create-game">Create Game</button>
       </div>
 
+<!-- game create and retireve buttons -->
+    <div class="control-panel">
+      <button id="create-game">Create Game</button>
+      <button id='retrieve-game'>Retrieve Game</button>
+      <button id="reset-game">Reset Game</button>
+    </div>
+
+<!-- authentation container -->
+<div class="auth-panel">
 <!-- start sign in form -->
 
         <form id="sign-in">
@@ -66,7 +74,7 @@
             <br>
             <input type="password" name="credentials[password]"  placeholder="Password">
             <br>
-            <input type="submit" name="submit" value="Login as Captain:">
+            <input type="submit" name="submit" value="Login as a Captain">
         </fieldset>
         </form>
 
@@ -77,13 +85,13 @@
           <fieldset>
             <legend>Register New Captain</legend>
               <br>
-              <input type="text" name="credentials[email]" value=""="Enter a Username">
+              <input type="text" name="credentials[email]" placeholder="Captain Name">
               <br>
               <input type="password" name="credentials[password]" placeholder="Password">
               <br>
               <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
               <br>
-              <input type="submit" name="submit" value="Register New Captain!">
+              <input type="submit" name="submit" value="Register New Captain">
           </fieldset>
           <span class="modalMessage"></span>
         </form>
@@ -115,8 +123,9 @@
           </fieldset>
           <span class="modalMessage"></span>
         </form>
-
 <!-- end log out form -->
+<!-- wns auth-panel container -->
+  </div>
 
     </body>
 </html>

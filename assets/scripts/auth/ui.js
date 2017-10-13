@@ -21,6 +21,8 @@ const signInSuccess = function (data) {
   $('#sign-up').hide()
   $('#change-password').show()
   $('#sign-out').show()
+  $('#create-game').show()
+  $('#retrieve-game').show()
   // we have to store the user data or header somwhere.  sto we will put it in ../store.js
   store.user = data.user
 }
@@ -69,7 +71,7 @@ const sectorIsOccupied = function () {
 const createGameSuccess = function (data) {
   // add code to show gameBoard
   console.log('gameCreate success')
-  $('.box_grid').fadeIn(2500)
+  $('.gameBoard').fadeIn(2500)
   $('#message3').html('Game successfully  <span style="color:green">created</span>')
   store.game = data.game
 }
@@ -89,12 +91,12 @@ const updateGameFailure = function () {
 
 const showGameSuccess = function () {
 // store.game = data.game
-// $('.box_grid').fadeIn(2500)
-// $('#message3').html('Game successfully  <span style="color:green">loaded</span>')
+  $('.gameBoard').fadeIn(2500)
+  $('#message3').html('Game successfully  <span style="color:green">loaded</span>')
 }
 
 const showGameFailure = function () {
-// $('#message3').html('Game  <span style="color:#ff0000">failed</span> to load')
+  $('#message3').html('Game  <span style="color:#ff0000">failed</span> to load')
 }
 
 const displayToken = function (cell, playerValue) {
@@ -113,13 +115,12 @@ const displayWinnner = function (playerValue) {
     $('#message').html('The game is over.')
     $('#message2').html('<h4><span style="color:green">Player O</span> is the winner! </h4>')
     $('.box_grid').fadeOut(2500)
-    $('#message2a').html('<form id="resetButton"><button type="submit" name="submit">Reset Game</button></form>').fadeIn(2000)
-    $('#resetButton').on('submit', resetBoard)
+    $('reset-game').show()
   } else {
     $('#message').html('The game is over.')
     $('#message2').html('<h4><span style="color:green">Player X</span> is the winner!</h4>')
     $('.box_grid').fadeOut(2500)
-    $('#message2a').html('<form id="resetButton"><button type="submit" name="submit">Reset Game</button></form>').fadeIn(2000)
+    $('reset-game').show()
   }
 }
 

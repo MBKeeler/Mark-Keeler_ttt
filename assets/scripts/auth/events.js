@@ -62,8 +62,6 @@ const createGame = function (event) {
     .catch(ui.createGameFailure)
 }
 
-
-
 const saveGameState = function (event) {
   event.preventDefault()
   console.log('saveGameState ran!')
@@ -113,12 +111,12 @@ const clickSector = function (event) {
       // let data = updateGame object from API
       // api.updateGame(dataObject)
       const gameData = {
-        "game": {
-          "cell": {
-            "index": boardCell,
-            "value": "x"
+        'game': {
+          'cell': {
+            'index': boardCell,
+            'value': 'x'
           },
-          "over": store.win
+          'over': store.win
         }
       }
       ui.displayToken(event.target, 'x')

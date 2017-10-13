@@ -7,11 +7,27 @@
 
 div {
   margin: auto;
-/*  border: 1px solid $defaultBoarderColor; */
   text-align: center;
 }
 
-#change-password, #sign-out {
+form {
+  margin: 10px 5px;
+  padding: 10px 5px;
+}
+
+button {
+  background-color: $defaultTextColor;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    padding: 10px 5px;
+    text-align: center;
+    margin: 10px 5px;
+    text-decoration: none;
+    display: inline-block;
+}
+
+#change-password, #sign-out, #create-game, #retrieve-game, #message, #message3, #message3a, #reset-game,  .gameBoard {
   display: none;
 }
 
@@ -29,25 +45,24 @@ margin-top: 10px;
     color: $captainsMessage;
 }
 
-.loginRegisterContainder{
+.control-panel, .auth-panel{
   clear: both;
-  margin: 50px 50px;
-  min-height: 110px;
+  margin: 10px,auto;
+  max-width: 33%;
+}
+
+.auth-panel {
+  background-color: $defaultTextBackground;
+  border-radius: 12px;
 }
 
 legend {
   color: $defaultTextColor;
-  // text-shadow: $galacticTextGlow;
-}
-
-.login.register {
-  float: left;
-  max-width: 250px;
-  min-height: 100px;
-  color: $defaultTextColor;
+  font-size: $deafultFormLegendText;
 }
 
 input {
+  width: 200px;
   font-size: $defaultFormTextSize;
   color: $contrastingTextColor;
   background-color: $defaultTextBackground;

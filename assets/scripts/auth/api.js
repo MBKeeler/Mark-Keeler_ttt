@@ -64,7 +64,7 @@ const updateGame = function (gameData) {
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data:gameData
+    data: gameData
   })
 }
 
