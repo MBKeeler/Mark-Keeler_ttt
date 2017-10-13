@@ -65,14 +65,19 @@ const sectorIsOccupied = function () {
   $('#message').html('<span style="color:#ff0000">Sector Already Occupied</span> Try Another Sector')
 }
 
-// const displayToken = function (cell, playerValue) {
-//   if (playerValue === 'o') {
-//     $(cell).html('<img src="../assets/images/tiefighter.jpeg" alt="player O" height="100" width="110" align="middle">')
-//   } else {
-//     $(cell).html('<img src="../assets/images/xwing.jpeg" alt="player X" height="100" width="110" align="middle">')
-//     $('#message').html('Sector is now under your control!  Well done captain X.</span>')
-//   }
-// }
+// create/save/get game
+const createGameSuccess = function (data) {
+  // show gameBoard
+  store.game = data.game
+}
+
+const createGameFailure = function () {
+// put game message here
+}
+
+const updateGame = function () {
+
+}
 
 const displayToken = function (cell, playerValue) {
   if (playerValue === 'o') {
@@ -127,6 +132,8 @@ module.exports = {
   signOutFailure,
   changePWSuccess,
   changePWFailure,
+  createGameSuccess,
+  createGameFailure,
   displayGameTurn,
   sectorIsOccupied,
   displayToken,

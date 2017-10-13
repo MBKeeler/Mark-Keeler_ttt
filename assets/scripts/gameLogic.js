@@ -69,6 +69,7 @@ const updateBoard = function (index, value) {
     checkWinner(gameBoard)
     currentGameTurn()
     // save game code here
+    // api.updateGame(gameData)
     return true
   } else {
     // console.log('we now know the sector is occcupied and we deliver a message', checkSector)

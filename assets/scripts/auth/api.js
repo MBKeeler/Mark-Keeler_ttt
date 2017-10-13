@@ -45,35 +45,33 @@ const changePassWord = function (data) {
 }
 
 // create game
-const createGame = function (data) {
-  console.log('data is ', data)
+const createGame = function () {
   return $.ajax({
     url: config.apiOrigin + '/games',
     method: 'POST',
     headers: {
       Authorization: 'Token token=' + store.user.token
-    },
-    data
+    }
   })
 }
 
-// save game
-const saveGame = function (data) {
-  console.log('data is ', data)
+// save update game
+const updateGame = function (gameData) {
+  console.log('gmaeData is ', gameData)
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.user.token,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token
     },
-    data
+    gameData
   })
 }
 
 // get game info
 
 const showGame = function (data) {
-  console.log('data is ', data)
+  console.log('showGame data is ', data)
   return $.ajax({
     url: config.apiOrigin + '/games/' + store.user.token,
     method: 'GET',
@@ -90,6 +88,6 @@ module.exports = {
   signOut,
   changePassWord,
   createGame,
-  saveGame,
+  updateGame,
   showGame
 }

@@ -50,7 +50,19 @@ const onChangePassword = function (event) {
     .then(ui.changePWSuccess)
     .catch(ui.changePWFailure)
 }
-// start code for game save/retrieve
+// start code for game create/save/retrieve
+const createGame = function (event) {
+
+  event.preventDefault()
+  // need ajax function to create game & will return data
+  // with game property
+  api.createGame()
+    .then(ui.createGameSuccess)
+    .catch(ui.createGameFailure)
+}
+
+
+
 const saveGameState = function (event) {
   event.preventDefault()
   console.log('saveGameState ran!')
@@ -75,6 +87,21 @@ const clickSector = function (event) {
     const sectorCheck = gameLogic.updateBoard(boardCell, 'o')
     if (sectorCheck === true) {
       // console.log('events.js', sectorCheck)
+      // let gameData = updateGame object from API
+      // api.updateGame(dataObject)
+      // const gameData = {
+      //   'game': {
+      //     'id': 3,
+      //     'cells': ["","","","","","","","",""],
+      //     'over': false,
+      //     'player_x': {
+      //       'id': 1,
+      //       'email': "and@and.com"
+      //     },
+      //     'player_o': null
+      //   }
+      // }
+      api.updateGame(gameData)
       ui.displayToken(event.target, 'o')
     } else {
       ui.sectorIsOccupied()
@@ -84,6 +111,8 @@ const clickSector = function (event) {
     const sectorCheck = gameLogic.updateBoard(boardCell, 'x')
     if (sectorCheck === true) {
       // console.log('events.js', sectorCheck)
+      // let data = updateGame object from API
+      // api.updateGame(dataObject)
       ui.displayToken(event.target, 'x')
     } else {
       // console.log('events.js', sectorCheck)
@@ -114,6 +143,7 @@ const addHandlers = function () {
   $('#change-password').on('submit', onChangePassword)
   $('#box_grid div').on('click', clickSector)
   $('#resetButton').on('submit', resetGameBoard)
+  $('#create-game').on('click', createGame)
 }
 
 module.exports = {
