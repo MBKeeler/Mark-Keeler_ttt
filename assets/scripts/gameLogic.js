@@ -77,33 +77,17 @@ const updateBoard = function (index, value) {
   }
 }
 
-// const updateBoard = function (index, value) {
-//    console.log('updateBoard index value ', index)
-//   const checkSector = occupiedSector(index)
-//   if (checkSector === false) {
-//      console.log('we now assume sector is unoccupied and update the board', checkSector)
-//     gameBoard[index] = value
-//     ui.displayGameTurn(window.gameTurn)
-//     checkWinner(gameBoard)
-//     currentGameTurn()
-//     return true
-//   } else {
-//     // console.log('we now know the sector is occcupied and we deliver a message', checkSector)
-//     return false
-//   }
-// }
-
 // checks for any empty sectors - Not implemented
-// const emptySectors = function (element) {
-//   return element === '*'
-// }
-// const checkGameContinues = function () {
-//   gameBoard.some(emptySectors)
-// }
+const emptySectors = function (element) {
+  return element === '*'
+}
+const checkGameContinues = function () {
+  gameBoard.some(emptySectors)
+}
 
 // Turn checker
 const currentTurn = function (turn) {
-  console.log('currentTurn Called' , turn)
+  console.log('currentTurn Called', turn)
   if (turn % 2 === 0) {
     $('#message').html('Turn belongs to player <span style="color:green">O</span>')
     return true
@@ -222,7 +206,7 @@ module.exports = {
   gameBoard,
   resetGame,
   occupiedSector,
-  // checkGameContinues,
+  checkGameContinues,
   updateBoard,
   currentScore,
   checkWinner,

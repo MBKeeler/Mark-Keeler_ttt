@@ -66,9 +66,9 @@ const sectorIsOccupied = function () {
   $('#message').html('<span style="color:#ff0000">Sector Already Occupied</span> Try Another Sector')
 }
 
-// const boardFull = function () {
-//   $('#message').html('<span style="color:#ff0000">Board is full with no winner</span> Click Create a New Game to start again.')
-// }
+const boardFull = function () {
+  $('#message').html('<span style="color:#ff0000">Board is full with no winner</span> Click Create a New Game to start again.')
+}
 
 // create/save/get game
 const createGameSuccess = function (data) {
@@ -182,7 +182,7 @@ module.exports = {
   showGameStatsFailure,
   displayGameTurn,
   sectorIsOccupied,
-  // boardFull,
+  boardFull,
   displayToken,
   displayWinnner,
   displayGameOver,
