@@ -5,12 +5,13 @@ const store = require('../store')
 // begin authentication relate functions
 const signUpSuccess = function (data) {
   // console.log(data)
-  $('#message3').html('You have signed up <span style="color:#00ff00">successfully</span>')
+  $('#message3').show().html('You have signed up <span style="color:#00ff00">successfully</span>. Now login to play.')
+  $('#sign-up').fadeOut()
 }
 
 const signUpFailure = function (error) {
   console.error(error)
-  $('#message3').show().html('Sign up has <span style="color:#ff0000">failed</span>')
+  $('#message3').show().html('Sign up has <span style="color:#ff0000">failed</span>. Please try again.')
 }
 
 const signInSuccess = function (data) {
@@ -28,7 +29,7 @@ const signInSuccess = function (data) {
 
 const signInFailure = function (error) {
   console.error(error)
-  $('#message3').show().html('Sign In <span style="color:#ff0000">failed</span>')
+  $('#message3').show().html('Sign In <span style="color:#ff0000">failed</span>. Please try again')
 }
 
 const signOutSuccess = function () {
@@ -53,14 +54,15 @@ const signOutFailure = function (error) {
   console.error(error)
   $('#message3').html('Sign Out  <span style="color:#ff0000">Failed</span>')
 }
+
 const changePWSuccess = function () {
-  $('#message3').html('You have <span style="color:green">successfully</span> changed your password')
-  // need to clear memory of the user information which includes token and auth header
+  $('#message3').show().html('You have <span style="color:green">successfully</span> changed your password')
+  $(':input', '#change-password').val('')
 }
 
 const changePWFailure = function (error) {
   console.error(error)
-  $('#message3').html('Change of Password  <span style="color:#ff0000">Failed</span>')
+  $('#message3').html('Change of Password  <span style="color:#ff0000">Failed</span>. Please try again.')
 }
 
 // begin game logic messages
@@ -81,7 +83,7 @@ const boardFull = function () {
 // create/save/get game
 const createGameSuccess = function (data) {
   // console.log('gameCreate success')
-  $('.gameBoard').fadeIn(2500)
+  $('.gameBoard').fadeIn(2000)
   $('.box_grid').empty()
   $('#message3').html('Game successfully  <span style="color:green">created</span>')
   store.game = data.game
@@ -90,6 +92,7 @@ const createGameSuccess = function (data) {
   $('#message3a').show()
   $('#message').empty()
   $('#message2').empty()
+  $('stats-display').empty().hide()
 }
 
 const createGameFailure = function () {
@@ -129,24 +132,24 @@ const displayToken = function (cell, playerValue) {
   // console.log('displayToken Called')
   if (playerValue === 'o') {
     $(cell).html('<a href="https://imgur.com/unoLQ1V"><img src="https://i.imgur.com/unoLQ1V.jpg" title="source: imgur.com" class="gameTokenO"  alt=“Tie Figther” width=“100” height=“100”/></a>')
-    $('#message').show().html('Sector is now under your control!  Well done captain O.</span>')
+    // $('#message').show().html('Sector is now under your control!  Well done captain O.</span>')
   } else {
     $(cell).html('<a href="https://imgur.com/z7sreVd"><img src="https://i.imgur.com/z7sreVd.jpg" title="source: imgur.com" class="gameTokenX" alt=“Xwing” width="100" height="110"/></a>')
-    $('#message').show().html('Sector is now under your control!  Well done captain X.</span>')
+    // $('#message').show().html('Sector is now under your control!  Well done captain X.</span>')
   }
 }
 
 const displayWinnner = function (playerValue) {
 //  console.log('displayWinnner was called')
   if (playerValue === 'o') {
-    $('#message').html('The game is over.')
+    $('#message').show().html('The game is over.')
     $('#message2').html('<h4><span style="color:green">Player O</span> is the winner! </h4>')
-    $('.box_grid').fadeToggle(2500)
+    $('.gameBoard').fadeOut(2500)
     $('#create-game').show()
   } else {
-    $('#message').html('The game is over.')
-    $('#message2').html('<h4><span style="color:green">Player X</span> is the winner!</h4>')
-    $('.box_grid').show().fadeIn(2500)
+    $('#message').show().html('The game is over.')
+    $('#message2').html('<h4><span style="color:green">Player X</span> is the winner!</h4>').fadeOut(4000)
+    $('.gameBoard').fadeOut(2500)
     $('#create-game').show()
   }
 }

@@ -87,10 +87,10 @@ const clickSector = function (event) {
     console.log(event.target, 'o')
     const sectorCheck = gameLogic.updateBoard(boardCell, 'o')
     if (sectorCheck === true) {
-      console.log('events.js', sectorCheck)
+      // console.log('events.js', sectorCheck)
       // let gameData = updateGame object from API
       // api.updateGame(dataObject)
-      console.log('boardCell', boardCell)
+      // console.log('boardCell', boardCell)
       const gameData = {
         'game': {
           'cell': {
@@ -113,7 +113,7 @@ const clickSector = function (event) {
       // console.log('events.js', sectorCheck)
       // let data = updateGame object from API
       // api.updateGame(dataObject)
-      console.log('boardCell', boardCell)
+      // console.log('boardCell', boardCell)
       const gameData = {
         'game': {
           'cell': {
@@ -133,12 +133,12 @@ const clickSector = function (event) {
 }
 
 // reset the game array and board
-const resetGameBoard = function (event) {
-  // console.log('reset game called')
-  event.preventDefault()
-  gameLogic.resetGame()
-  ui.resetBoard()
-}
+// const resetGameBoard = function (event) {
+//   // console.log('reset game called')
+//   event.preventDefault()
+//   gameLogic.resetGame()
+//   ui.resetBoard()
+// }
 
 const displayGameStats = function () {
   event.preventDefault()
@@ -155,7 +155,7 @@ const addHandlers = function () {
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#box_grid div').on('click', clickSector)
-  $('#resetButton').on('click', resetGameBoard)
+  // $('#resetButton').on('click', resetGameBoard)
   $('#create-game').on('click', createGame)
   $('#get-stats').on('click', displayGameStats)
 }
@@ -163,7 +163,7 @@ const addHandlers = function () {
 module.exports = {
   addHandlers,
   clickSector,
-  resetGameBoard,
+  // resetGameBoard,
   saveGameState,
   displayGameStats
 }
