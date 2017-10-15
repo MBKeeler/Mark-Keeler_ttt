@@ -64,7 +64,7 @@ const createGame = function (event) {
 
 const saveGameState = function (event) {
   event.preventDefault()
-  console.log('saveGameState ran!')
+//  console.log('saveGameState ran!')
 
   const data = getFormFields(this)
   api.changePassWord(data)
@@ -75,7 +75,7 @@ const saveGameState = function (event) {
 // code for Game UI handlers
 // let's just get the grid to update
 const clickSector = function (event) {
-  console.log('clickSector called')
+//  console.log('clickSector called')
   const boardCell = $(event.target).attr('id')
   event.preventDefault()
   // get the current turn
@@ -84,7 +84,7 @@ const clickSector = function (event) {
   // determine who's turn
   gameLogic.currentTurn(num)
   if (gameLogic.currentTurn(num) === true) {
-    console.log(event.target, 'o')
+  //  console.log(event.target, 'o')
     const sectorCheck = gameLogic.updateBoard(boardCell, 'o')
     if (sectorCheck === true) {
       // console.log('events.js', sectorCheck)

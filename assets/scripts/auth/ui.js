@@ -92,6 +92,7 @@ const createGameSuccess = function (data) {
   $('#message3a').show()
   $('#message').empty()
   $('#message2').empty()
+  $('#message5').empty()
   $('stats-display').empty().hide()
 }
 
@@ -145,11 +146,15 @@ const displayWinnner = function (playerValue) {
     $('#message').show().html('The game is over.')
     $('#message2').html('<h4><span style="color:green">Player O</span> is the winner! </h4>')
     $('.gameBoard').fadeOut(2500)
+    $('#message3').hide()
+    $('#message5').hide()
     $('#create-game').show()
   } else {
     $('#message').show().html('The game is over.')
     $('#message2').html('<h4><span style="color:green">Player X</span> is the winner!</h4>').fadeOut(4000)
     $('.gameBoard').fadeOut(2500)
+    $('#message3').hide()
+    $('#message5').hide()
     $('#create-game').show()
   }
 }

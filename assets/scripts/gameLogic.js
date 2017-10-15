@@ -90,10 +90,10 @@ const updateBoard = function (index, value) {
 const currentTurn = function (turn) {
   // console.log('currentTurn Called', turn)
   if (turn % 2 === 0) {
-    $('#message').html('Turn belongs to player <span style="color:green">O</span>')
+    $('#message5').html('Turn now belongs to player <span style="color:green">X</span>')
     return true
   } else {
-    $('#message').html('Turn belongs to player <span style="color:green">X</span>')
+    $('#message5').html('Turn now belongs to player <span style="color:green">O</span>')
     return false
   }
 }
