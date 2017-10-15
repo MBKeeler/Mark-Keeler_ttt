@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>Galactic Tic Tac Toe</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body class="container-fluid">
+<!-- Sign In Options -->
+
+<!-- Simple title Mastehead -->
+
+      <div class="gameTitle"><h1>Galactic Tic Tac Toe</h1></div>
+      <div id="message4">Player X score: <span id="message3b"></span>     Player O score:<span id="message3c"></span></div>
+      <div id="message5"></div>
+
+<!-- Message Center -->
+    <div id="message"><h5>Game Messages:</h5></div>
+    <div id="message3">Turn: <span id="message3a"></span> </div>
+
+<!-- Begin Game Board  -->
+      <div class="gameBoard">
+
+        <div class="col-xs-4 col-md-4 box_grid" id='0'>
+        </div>
+
+        <div class="col-xs-4 col-md-4 box_grid" id='1'>
+        </div>
+
+        <div class="col-xs-4 col-md-4 box_grid" id='2'>
+        </div>
+
+        <div class="col-xs-4 col-md-4 box_grid" id='3'>
+        </div>
+
+        <div class="col-xs-4 col-md-4 box_grid" id='4'>
+        </div>
+
+        <div class="col-xs-4 col-md-4 box_grid" id='5'>
+        </div>
+
+        <div class="col-xs-4 col-md-4 box_grid" id='6'>
+        </div>
+
+        <div class="col-xs-4 col-md-4 box_grid" id='7'>
+        </div>
+
+        <div class="col-xs-4 col-md-4 box_grid" id='8'>
+        </div>
+      </div>
+
+<!--  additional game messages -->
+    <div id='message2'></div>
+    <div id='message2a'></div>
+<!--  -->
+<!-- game create and stat retireve buttons -->
+    <div class="control-panel">
+      <button id="create-game">Create a New Game</button>
+      <button id='get-stats'>Retrieve Game Stats</button>
+      <button id="reset-game">Reset Game</button>
+    </div>
+
+<!-- game stats  -->
+<div id="stats-display">
+</div>
+<!-- end game stats  -->
+
+<!-- start authentation container -->
+<div class="auth-panel">
+<!-- start sign in form -->
+
+        <form id="sign-in">
+          <fieldset>
+            <legend>Login Captain</legend>
+            <input type="text" name="credentials[email]"  placeholder="Enter Username">
+            <br>
+            <input id="pw-field" type="password" name="credentials[password]"  placeholder="Password">
+            <br>
+            <input type="submit" name="submit" value="Login as a Captain">
+        </fieldset>
+        </form>
+
+<!-- end sign in form -->
+
+<!-- start sign up form -->
+        <form id="sign-up">
+          <fieldset>
+            <legend>Register New Captain</legend>
+              <br>
+              <input type="text" name="credentials[email]" placeholder="Captain Name">
+              <br>
+              <input type="password" name="credentials[password]" placeholder="Password">
+              <br>
+              <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+              <br>
+              <input type="submit" name="submit" value="Register New Captain">
+          </fieldset>
+        </form>
+
+<!-- end sign up form -->
+
+<!-- start sign up form -->
+        <form id="change-password">
+          <fieldset>
+            <legend>Change Password</legend>
+              <br>
+              <input type="password" name="passwords[old]" placeholder="Password">
+              <br>
+              <input type="password" name="passwords[new]" placeholder="Confirm Password">
+              <br>
+              <input type="submit" name="submit" value="Change Password">
+          </fieldset>
+          <span class="modalMessage"></span>
+        </form>
+
+<!-- end change pw form -->
+
+<!-- start log out form -->
+        <form id="sign-out">
+          <fieldset>
+            <legend>Log Out</legend>
+              <br>
+              <input type="submit" name="submit" value="Log Out">
+          </fieldset>
+          <span class="modalMessage"></span>
+        </form>
+<!-- end log out form -->
+<!-- wns auth-panel container -->
+  </div>
+
+    </body>
+</html>
