@@ -90,6 +90,7 @@ const clickSector = function (event) {
       console.log('events.js', sectorCheck)
       // let gameData = updateGame object from API
       // api.updateGame(dataObject)
+      console.log('boardCell', boardCell)
       const gameData = {
         'game': {
           'cell': {
@@ -106,12 +107,13 @@ const clickSector = function (event) {
       ui.sectorIsOccupied()
     }
   } else {
-     console.log(event.target, 'x')
+    //  console.log(event.target, 'x')
     const sectorCheck = gameLogic.updateBoard(boardCell, 'x')
     if (sectorCheck === true) {
       // console.log('events.js', sectorCheck)
       // let data = updateGame object from API
       // api.updateGame(dataObject)
+      console.log('boardCell', boardCell)
       const gameData = {
         'game': {
           'cell': {
@@ -140,7 +142,6 @@ const resetGameBoard = function (event) {
 
 const displayGameStats = function () {
   event.preventDefault()
-  api.getGameStats()
   api.getGameStats()
     .then(ui.showGameStatsSuccess)
     .catch(ui.showGameStatsFailure)
