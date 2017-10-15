@@ -53,10 +53,10 @@ const onChangePassword = function (event) {
 }
 // start code for game create/save/retrieve
 const createGame = function (event) {
-
   event.preventDefault()
   // need ajax function to create game & will return data
   // with game property
+  gameLogic.resetGame()
   api.createGame()
     .then(ui.createGameSuccess)
     .catch(ui.createGameFailure)
@@ -75,26 +75,28 @@ const saveGameState = function (event) {
 // code for Game UI handlers
 // let's just get the grid to update
 const clickSector = function (event) {
+  console.log('clickSector called')
   const boardCell = $(event.target).attr('id')
   event.preventDefault()
   // get the current turn
   const num = window.gameTurn
+  console.log('gameTurn is ', num)
   // determine who's turn
   gameLogic.currentTurn(num)
   if (gameLogic.currentTurn(num) === true) {
-    // console.log(event.target, 'o')
+    console.log(event.target, 'o')
     const sectorCheck = gameLogic.updateBoard(boardCell, 'o')
     if (sectorCheck === true) {
-      // console.log('events.js', sectorCheck)
+      console.log('events.js', sectorCheck)
       // let gameData = updateGame object from API
       // api.updateGame(dataObject)
       const gameData = {
-        "game": {
-          "cell": {
-            "index": boardCell,
-            "value": "o"
+        'game': {
+          'cell': {
+            'index': boardCell,
+            'value': 'o'
           },
-          "over": store.win
+          'over': store.win
         }
       }
 
@@ -104,7 +106,7 @@ const clickSector = function (event) {
       ui.sectorIsOccupied()
     }
   } else {
-    //  console.log(event.target, 'x')
+     console.log(event.target, 'x')
     const sectorCheck = gameLogic.updateBoard(boardCell, 'x')
     if (sectorCheck === true) {
       // console.log('events.js', sectorCheck)
@@ -119,6 +121,7 @@ const clickSector = function (event) {
           'over': store.win
         }
       }
+      api.updateGame(gameData)
       ui.displayToken(event.target, 'x')
     } else {
       // console.log('events.js', sectorCheck)
@@ -129,16 +132,19 @@ const clickSector = function (event) {
 
 // reset the game array and board
 const resetGameBoard = function (event) {
-  console.log('reset game called')
+  // console.log('reset game called')
   event.preventDefault()
   gameLogic.resetGame()
   ui.resetBoard()
 }
 
-// looking to
-// $( "#book" ).load(function() {
-//   // Handler for .load() called.
-// });
+const displayGameStats = function () {
+  event.preventDefault()
+  api.getGameStats()
+  api.getGameStats()
+    .then(ui.showGameStatsSuccess)
+    .catch(ui.showGameStatsFailure)
+}
 
 // handler definitions and module exports
 
@@ -148,13 +154,15 @@ const addHandlers = function () {
   $('#sign-out').on('submit', onSignOut)
   $('#change-password').on('submit', onChangePassword)
   $('#box_grid div').on('click', clickSector)
-  $('#resetButton').on('submit', resetGameBoard)
+  $('#resetButton').on('click', resetGameBoard)
   $('#create-game').on('click', createGame)
+  $('#get-stats').on('click', displayGameStats)
 }
 
 module.exports = {
   addHandlers,
   clickSector,
   resetGameBoard,
-  saveGameState
+  saveGameState,
+  displayGameStats
 }

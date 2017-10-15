@@ -11,11 +11,18 @@ another player.  Players alternate turns by conquering each of nine sectors in
 the contested quadrant.  Players who are able to establish a cohesive supply
 line of three sectors within the quadrant will be deemed the winner.
 
-## Known Issues
- As of v.1.1 the following know issues exist
--- the required networking features to save a game state is unfinished
--- game tie code has not be implemented
--- console.log lines left in for the network sign-in and error handling
+## Remediations
+ As of v.1.1 the following changes were made to comply with project requirements
+-- responsiveness:  Game is playable on portable devices and is recommended that the minimum resolution be 400px wide viewport.
+-- Game features utilizing GA API have been implemented and support: Sign in, Sign up, Change PW, Logout, Save game data, retrieve game stats.
+-- debugging code, including console logging, have been suppressed.
+-- Now using the correct Github repository URLs
+-- UI defects relating to the proper display of game information and user authentication features.
+
+## Other changes since v.1
+Other changes have been made since version 1
+-- cleanup of redundant or superfluous code
+-- improved code structure
 
 ## Technologies Used
 

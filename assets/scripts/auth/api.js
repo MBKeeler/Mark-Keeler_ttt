@@ -69,11 +69,10 @@ const updateGame = function (gameData) {
 }
 
 // get game info
-
-const showGame = function (data) {
-  console.log('showGame data is ', data)
+const getGameStats = function (data) {
+  // console.log('getGameStats data is ', data)
   return $.ajax({
-    url: config.apiOrigin + '/games/' + store.user.token,
+    url: config.apiOrigin + 'games',
     method: 'GET',
     headers: {
       Authorization: 'Token token=' + store.user.token
@@ -89,5 +88,5 @@ module.exports = {
   changePassWord,
   createGame,
   updateGame,
-  showGame
+  getGameStats
 }

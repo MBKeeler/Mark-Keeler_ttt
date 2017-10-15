@@ -27,7 +27,7 @@ button {
     display: inline-block;
 }
 
-#change-password, #sign-out, #create-game, #retrieve-game, #message, #message3, #message3a, #reset-game,  .gameBoard {
+#change-password, #sign-out, #create-game, #stats-display, #message, #message3, #message3a, #reset-game, #stats-display, #get-stats, #message4, .gameBoard {
   display: none;
 }
 
@@ -45,6 +45,10 @@ margin-top: 10px;
     color: $captainsMessage;
 }
 
+#message2, #message2a {
+  margin-top: 10px;
+}
+
 .control-panel, .auth-panel{
   clear: both;
   margin: 10px,auto;
@@ -52,6 +56,7 @@ margin-top: 10px;
 }
 
 .auth-panel {
+  min-width: 225px;
   background-color: $defaultTextBackground;
   border-radius: 12px;
 }

@@ -2,34 +2,33 @@
 
 const store = require('../store')
 
-// modify these functions to conform with ttt game api
+// begin authentication relate functions
 const signUpSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   $('#message3').html('You have signed up <span style="color:#00ff00">successfully</span>')
 }
 
 const signUpFailure = function (error) {
   console.error(error)
-  $('#message3').html('Sign up has <span style="color:#ff0000">failed</span>')
+  $('#message3').show().html('Sign up has <span style="color:#ff0000">failed</span>')
 }
 
-// modify these functions to conform with ttt game api
 const signInSuccess = function (data) {
-  console.log(data)
+  // console.log(data)
   $('#message3').html('You have signed in <span style="color:green">successfully</span>')
   $('#sign-in').hide()
   $('#sign-up').hide()
   $('#change-password').show()
   $('#sign-out').show()
   $('#create-game').show()
-  $('#retrieve-game').show()
+  $('#get-stats').show()
   // we have to store the user data or header somwhere.  sto we will put it in ../store.js
   store.user = data.user
 }
 
 const signInFailure = function (error) {
   console.error(error)
-  $('#message3').html('Sign In <span style="color:#ff0000">failed</span>')
+  $('#message3').show().html('Sign In <span style="color:#ff0000">failed</span>')
 }
 
 const signOutSuccess = function () {
@@ -63,17 +62,26 @@ const displayGameTurn = function (turn) {
 }
 
 const sectorIsOccupied = function () {
-  console.log('Sector is occupied')
+  // console.log('Sector is occupied')
   $('#message').html('<span style="color:#ff0000">Sector Already Occupied</span> Try Another Sector')
 }
 
+// const boardFull = function () {
+//   $('#message').html('<span style="color:#ff0000">Board is full with no winner</span> Click Create a New Game to start again.')
+// }
+
 // create/save/get game
 const createGameSuccess = function (data) {
-  // add code to show gameBoard
-  console.log('gameCreate success')
+  // console.log('gameCreate success')
   $('.gameBoard').fadeIn(2500)
+  $('.box_grid').empty()
   $('#message3').html('Game successfully  <span style="color:green">created</span>')
   store.game = data.game
+  $('#create-game').hide()
+  $('#message4').show()
+  $('#message3a').show()
+  $('#message2').show()
+  $('#message2a').show()
 }
 
 const createGameFailure = function () {
@@ -82,15 +90,14 @@ const createGameFailure = function () {
 }
 
 const updateGameSuccess = function () {
-// $('#message3').html('Game successfully  <span style="color:green">updated</span>')
+  $('#message3').html('Game successfully  <span style="color:green">updated</span>')
 }
 
 const updateGameFailure = function () {
-// $('#message3').html('Update game  <span style="color:#ff0000">failed</span>')
+  $('#message3').html('Update game  <span style="color:#ff0000">failed</span>')
 }
 
 const showGameSuccess = function () {
-// store.game = data.game
   $('.gameBoard').fadeIn(2500)
   $('#message3').html('Game successfully  <span style="color:green">loaded</span>')
 }
@@ -99,13 +106,27 @@ const showGameFailure = function () {
   $('#message3').html('Game  <span style="color:#ff0000">failed</span> to load')
 }
 
+const showGameStatsSuccess = function (data) {
+  console.log('showGameStats', data)
+  for (let i = 0; i < data.length; i++) {
+    console.log('Game id: ', data.id[i])
+    $('stats-dispay').show().html('<p>Game: </p>' + data.id[i])
+  }
+}
+
+const showGameStatsFailure = function () {
+  $('#stats-display').html('Game statistics <span style="color:#ff0000">failed</span> to load')
+}
+
+// begin game board event funcitons
 const displayToken = function (cell, playerValue) {
+  console.log('displayToken Called')
   if (playerValue === 'o') {
     $(cell).html('<a href="https://imgur.com/unoLQ1V"><img src="https://i.imgur.com/unoLQ1V.jpg" title="source: imgur.com" class="gameTokenO"  alt=“Tie Figther” width=“100” height=“100”/></a>')
-    $('#message').html('Sector is now under your control!  Well done captain O.</span>')
+    $('#message').show().html('Sector is now under your control!  Well done captain O.</span>')
   } else {
     $(cell).html('<a href="https://imgur.com/z7sreVd"><img src="https://i.imgur.com/z7sreVd.jpg" title="source: imgur.com" class="gameTokenX" alt=“Xwing” width="100" height="110"/></a>')
-    $('#message').html('Sector is now under your control!  Well done captain X.</span>')
+    $('#message').show().html('Sector is now under your control!  Well done captain X.</span>')
   }
 }
 
@@ -114,13 +135,13 @@ const displayWinnner = function (playerValue) {
   if (playerValue === 'o') {
     $('#message').html('The game is over.')
     $('#message2').html('<h4><span style="color:green">Player O</span> is the winner! </h4>')
-    $('.box_grid').fadeOut(2500)
-    $('reset-game').show()
+    // $('.box_grid').fadeOut(2500)
+    $('#create-game').show()
   } else {
     $('#message').html('The game is over.')
     $('#message2').html('<h4><span style="color:green">Player X</span> is the winner!</h4>')
-    $('.box_grid').fadeOut(2500)
-    $('reset-game').show()
+    // $('.box_grid').fadeOut(2500)
+    $('#create-game').show()
   }
 }
 
@@ -157,8 +178,11 @@ module.exports = {
   updateGameFailure,
   showGameSuccess,
   showGameFailure,
+  showGameStatsSuccess,
+  showGameStatsFailure,
   displayGameTurn,
   sectorIsOccupied,
+  // boardFull,
   displayToken,
   displayWinnner,
   displayGameOver,
